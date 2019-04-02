@@ -22,6 +22,7 @@
  * @author     UNSW
  * @author     Morgan Harris
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @modified by Dominique Palumbo (UCLouvain)
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -144,7 +145,13 @@ function teamup_scale_used_anywhere($scaleid) {
     return false;
 }
 
-
+/**
+ * Get questions for a particular team builder questionnaire
+ *
+ * @author Dominique Palumbo 
+ * @param int $id (builder), int $userid (if specified return the data for this user only if not for all)
+ * @return recordsets of questions
+ */
 function teamup_get_questions($id, $userid = null) {
     global $DB;
     if ($questions = $DB->get_records("teamup_question", array("builder" => $id), "ordinal ASC")) {
@@ -160,18 +167,6 @@ function teamup_get_questions($id, $userid = null) {
                 }
             }
         }
-    }
-
-    return $questions;
-}
-
-function teamup_get_all_questions() {
-    global $DB;
-    //if ($questions = $DB->get_records("teamup_question", array("builder" => $id) , "ordinal ASC")) {
-      if ($questions = $DB->get_records_sql("SELECT * FROM {teamup_question} ORDER BY ordinal ASC")) {
-      foreach ($questions as &$q) {
-        $q->answers = $DB->get_records("teamup_answer", array("question" => $q->id), "ordinal ASC");
-      }
     }
 
     return $questions;
@@ -232,6 +227,13 @@ function teamup_supports($feature) {
 }
 
 
+/**
+ * add an icon after the activities to allow teacher to down load an export of the students answers
+ *
+ * @author Dominique Palumbo 
+ * @param cm_info $cm context info
+ * @return nothing
+ */
 function teamup_cm_info_view(cm_info $cm) {
    global $DB,$USER;
    

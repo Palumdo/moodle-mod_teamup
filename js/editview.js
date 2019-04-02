@@ -59,11 +59,6 @@ $(function() {
     $("#importButton").click(function() {
         window.location.href = window.location.href + "&import=" + $(this).prevAll("select:first").val();
     });
-/*
-    $(".questionText").dblclick(function() {
-      $(this).after().html('<input class="text" id="newvalue" style="width:200px;" value="'+$(this).html()+'"><button onclick="saveTitle(this,'+$(this).data("id")+');" class="btn btn-primary">S</button>');
-    });
-*/
     $(".answerText").dblclick(function() {
       $(this).after().html('<input class="text" id="newvalue" style="width:200px;" value="'+$(this).html()+'"><button onclick="saveAnswer(this,'+$(this).data("id")+');" class="btn btn-primary">X</button>');
     });

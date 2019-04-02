@@ -14,6 +14,15 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+/**
+ * This page export all the student answers in an HTML file compatible with Excel
+ *
+ * @package    mod_teamup fork of teambuilder (mod_teambuilder)
+ * @copyright  UCLouvain
+ * @author     UCLouvain
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
 
 require_once(dirname(__FILE__).'/../../config.php');
 require_once(dirname(__FILE__).'/lib.php');
@@ -143,7 +152,6 @@ UNION
 
 $params = array('param1' => $courseid, 'param2' => $id, 'param3' => $courseid, 'param4' => $courseid, 'param5' => $courseid, 'param6' => $courseid, 'param7' => $courseid, 'param8' => $id, 'param9' => $courseid, 'param10' => $courseid, 'param11' => $courseid);
 $result = $DB->get_records_sql($sql, $params);
-//$result = $DB->get_records_sql($sql);
     
 $output = '<table class="table table-bordered">
       <tr>  

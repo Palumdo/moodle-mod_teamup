@@ -13,12 +13,20 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+/**
+ * teamup view.
+ *
+ * @package    mod_teamup fork of teambuilder (mod_teambuilder)
+ * @copyright  UNSW
+ * @author     UNSW
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @modified by Dominique Palumbo (UCLouvain)
+ */
 
 require_once(dirname(__FILE__).'/../../config.php');
 require_once(dirname(__FILE__).'/lib.php');
 
 $PAGE->requires->jquery();
-//$PAGE->requires->js("/mod/teamup/js/jquery-1.12.4.min.js");
 $PAGE->requires->jquery_plugin('ui');
 $PAGE->requires->jquery_plugin('ui-css');
 $PAGE->requires->js("/mod/teamup/js/json2.js");
@@ -161,14 +169,12 @@ if (($mode == "student") && $teamup->groupid && !groups_is_member($teamup->group
         echo $output->navigation_tabs($id, "questionnaire");
 
         if ($teamup->open < time()) {
-          //var_dump($teamup);
-          //echo('time:'.$teamup->open);
-                echo '<div class="ui-widget" style="text-align:center;">';
-                $style = "display:inline-block; padding-left:10px; padding-right:10px;";
-                echo '<div style="'.$style.'" class="ui-state-highlight ui-corner-all">';
-                echo '<p>'.get_string('noeditingafteropentime', 'mod_teamup').'</p>';
-                echo '</div></div>';
-                echo '<script type="text/javascript">var interaction_disabled = true;</script>';
+          echo '<div class="ui-widget" style="text-align:center;">';
+          $style = "display:inline-block; padding-left:10px; padding-right:10px;";
+          echo '<div style="'.$style.'" class="ui-state-highlight ui-corner-all">';
+          echo '<p>'.get_string('noeditingafteropentime', 'mod_teamup').'</p>';
+          echo '</div></div>';
+          echo '<script type="text/javascript">var interaction_disabled = true;</script>';
         }
 
         // Set up initial questions.
@@ -178,8 +184,8 @@ if (($mode == "student") && $teamup->groupid && !groups_is_member($teamup->group
         echo '<div id="questions">';
         $strDelete = get_string('delete');
         foreach ($questions as $q) {
-           $strType = $displaytypes[$q->type];
-            echo <<<HTML
+          $strType = $displaytypes[$q->type];
+          echo <<<HTML
 <div class="question" id="question-{$q->id}"><table class="mod-teamup-table">
 <tr>
     <td rowspan="2" class="handle">&nbsp;</td>

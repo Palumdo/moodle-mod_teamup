@@ -21,6 +21,7 @@
  * @copyright  UNSW
  * @author     UNSW
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @modified by Dominique Palumbo (UCLouvain)
  */
 
 defined('MOODLE_INTERNAL') || die();

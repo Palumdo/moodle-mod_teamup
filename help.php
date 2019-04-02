@@ -13,6 +13,14 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+/**
+ * This page is the tab with the online help to understand and use the plugin (only for the teacher).
+ *
+ * @package    mod_teamup fork of teambuilder (mod_teambuilder)
+ * @copyright  UCLouvain
+ * @author     UCLouvain
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 
 require_once(dirname(__FILE__).'/../../config.php');
 require_once(dirname(__FILE__).'/lib.php');

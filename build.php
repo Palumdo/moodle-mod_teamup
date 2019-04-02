@@ -97,26 +97,14 @@ echo ('<div id="protectAll" class="modal" style="position:absolute;top:50%;left:
        </div><!-- /.modal -->');
 
 if (!is_null($action) && $action == "create-groups") {
-/*  if (!$nogrouping) { */
-//    if (strlen($groupingname) > 0) {
-      $data           = new stdClass();
-      $data->courseid = $course->id;
-      $data->name     = $groupingname;
-      $grouping       = groups_create_grouping($data);
-/*
-    } else {
-      $grouping       = groups_get_grouping($groupingid);
-      $groupingname   = $grouping->name;
-      $grouping       = $grouping->id;
-    }
-*/    
-    
-/*  } */
+  $data           = new stdClass();
+  $data->courseid = $course->id;
+  $data->name     = $groupingname;
+  $grouping       = groups_create_grouping($data);
 
   foreach ($teams as $k => $teamstr) {
     $name                 = $teamnames[$k];
     $team                 = explode(",", $teamstr);
-//    $oname                = !$nogrouping && $inheritgroupingname ? "$groupingname $name" : $name;
     $oname                = $groupingname.' '.$name;
     $groupdata            = new stdClass();
     $groupdata->courseid  = $course->id;
@@ -127,21 +115,11 @@ if (!is_null($action) && $action == "create-groups") {
         groups_add_member($group, $user);
       }
     }
-//    if (!$nogrouping) {
-      groups_assign_grouping($grouping, $group);
-//    }
+   groups_assign_grouping($grouping, $group);
   }
 
   $feedback = get_string('groupcreationsuccess', 'mod_teamup');
 } else {
-
-/*
-  $group = '';
-  if ($teamup->groupid) {
-    $group = $teamup->groupid;
-  }
-*/
-  
   $students  = get_enrolled_users($ctxt, 'mod/teamup:respond', $group, 'u.id,u.firstname,u.lastname', null, 0, 0, true);
   $responses = teamup_get_responses($teamup->id);
   $questions = teamup_get_questions($teamup->id);
@@ -162,14 +140,12 @@ if (!empty($feedback)) {
   echo '  </div>';
   echo '</div>';
 } else { 
-
-
   echo '<fieldset>
           <legend class="myShow">'.get_string('groupName', 'mod_teamup').'</legend>
-          <div style="display:;">
+          <div>
            '.get_string('groupSchemaName', 'mod_teamup').'             
-           <span class="helptooltip" id="yui_3_17_2_1_1531814373153_308">
-              <a href="'.$CFG->httpswwwroot.'/help.php?component=teamup&amp;identifier=namingscheme&amp;lang='.current_language().'" title="'.get_string('help').'" aria-haspopup="true" target="_blank" id="yui_3_17_2_1_1531814373153_307"><img style="width:32px;" class="icon iconhelp" alt="'.get_string('help').'" title="'.get_string('help').'" src="/theme/image.php/uclouvain/core/1528214972/help" id="yui_3_17_2_1_1531814373153_310"></a>
+           <span class="helptooltip">
+              <a href="'.$CFG->httpswwwroot.'/help.php?component=teamup&amp;identifier=namingscheme&amp;lang='.current_language().'" title="'.get_string('help').'" aria-haspopup="true" target="_blank" id="yui_3_17_2_1_1531814373153_307"><img style="width:32px;" class="icon iconhelp" alt="'.get_string('help').'" title="'.get_string('help').'" src="/theme/image.php/uclouvain/core/1528214972/help"></a>
             </span>: <input name="namingscheme" value="'.get_string('groupTitle', 'mod_teamup').' #" id="id_namingscheme" type="text" style="height:26px;margin-top:10px;">
           </div>
         </fieldset>';
@@ -182,10 +158,6 @@ if (!empty($feedback)) {
         html_writer::tag('button', get_string('resetteams', 'mod_teamup'), ['type' => 'button', 'id' => 'resetteams', 'class' => '']),
         html_writer::tag('button', get_string('prettify',   'mod_teamup'), ['type' => 'button', 'id' => 'prettify', 'style' => '', 'title' => get_string('prettifyHelp', 'mod_teamup')]),
         html_writer::tag('button', get_string('equalize',   'mod_teamup'), ['type' => 'button', 'id' => 'equalize', 'style' => '', 'title' => get_string('equalizeHelp', 'mod_teamup')]),
-/*        
-        html_writer::tag('button', get_string('save'), ['type' => 'button', 'id' => 'hist_save', 'style' => '']),
-        html_writer::tag('button', get_string('load'), ['type' => 'button', 'id' => 'hist_go', 'style' => '']),
-*/        
   ];
   echo '<div style="width:100%;text-align:right;margin-top:5px;padding-right:250px;"><button id="addnewcriterion">'.get_string('addnewcriterion', 'mod_teamup').'</button></div>';
 
@@ -201,18 +173,6 @@ if (!empty($feedback)) {
   
   $stepper = html_writer::span(1, 'stepper');
   echo html_writer::div($stepper, 'centered padded');
-/*
-  echo '<fieldset>
-      <legend class="myHide">'.get_string('abc', 'mod_teamup').'</legend>
-      <div style="display:none">
-
-      <span class="helptooltip" id="yui_3_17_2_1_1531814373153_990">
-        <a href="'.$CFG->httpswwwroot.'/help.php?component=mod_teamup&amp;identifier=helpserie&amp;lang='.current_language().'" title="'.get_string('help').'" aria-haspopup="true" target="_blank" id="yui_3_17_2_1_1531814373153_307"><img style="width:32px;" class="icon iconhelp" alt="'.get_string('help').'" title="'.get_string('help').'" src="/theme/image.php/uclouvain/core/1528214972/help" id="yui_3_17_2_1_1531814373153_991"></a>
-      </span> 
-      '.html_writer::tag('button', get_string('abc', 'mod_teamup'), ['type' => 'button', 'id' => 'serie', 'style' => '']).'
-      </div>
-    </fieldset>';
-*/
   
   echo '<fieldset>
 		<legend class="myShow">'.get_string('preview', 'mod_teamup').'</legend>
@@ -220,19 +180,17 @@ if (!empty($feedback)) {
 
   $groups = "<option value='0'>".get_string('allstudents', 'mod_teamup')."</option>";
   foreach (groups_get_all_groups($course->id) as $grp) {
-//    if(strpos($grp->name, get_string('abc', 'mod_teamup')) !== false ) {
     $selected = "";
     if($group == $grp->id) {
       $selected = "selected";
     }
       $groups .= "  <option value=\"$grp->id\" $selected>$grp->name</option>";
-//    }
   }
     
   echo get_string('aggFilter', 'mod_teamup') . ' : <select id="series">';
   echo $groups;
   echo '</select>';  
-  echo html_writer::tag('button', get_string('deleteAllRed',   'mod_teamup'), ['type' => 'button', 'id' => 'deleteallred', 'style' => '']);
+  echo html_writer::tag('button', get_string('deleteAllRed', 'mod_teamup'), ['type' => 'button', 'id' => 'deleteallred', 'style' => '']);
   echo html_writer::tag('button', get_string('keepAllRed',   'mod_teamup'), ['type' => 'button', 'id' => 'keepallred', 'style' => '']);
   
   $unassignedheading = html_writer::tag('h2', get_string('unassignedtoteams', 'mod_teamup'));

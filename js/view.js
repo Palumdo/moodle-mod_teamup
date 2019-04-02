@@ -51,7 +51,7 @@ function validateForm(form) {
       valid = false;
       $(this).closest("div.question").addClass("ui-state-error");
     });    
-//    $(form).find(".two, input[type='checkbox']").closest(".answers").each(function() {
+
     $(form).find(".two").closest(".answers").each(function() {      
         if ($(this).find(".two:checked").length == 2) {
             $(this).closest("div.question").removeClass("ui-state-error");
@@ -62,7 +62,6 @@ function validateForm(form) {
       $(this).closest("div.question").addClass("ui-state-error");
     });
 
-//    $(form).find(".three, input[type='checkbox']").closest(".answers").each(function() {    
     $(form).find(".three").closest(".answers").each(function() {
         if ($(this).find(".three:checked").length == 3) {
             $(this).closest("div.question").removeClass("ui-state-error");
