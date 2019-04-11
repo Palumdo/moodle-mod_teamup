@@ -177,6 +177,7 @@ if (($mode == "student") && $teamup->groupid && !groups_is_member($teamup->group
           echo '<script type="text/javascript">var interaction_disabled = true;</script>';
         }
 
+        //echo ('<b>'.get_string('pleasenever', 'mod_teamup').'</b>');
         // Set up initial questions.
         $questions = teamup_get_questions($teamup->id);
         echo '<script type="text/javascript"> var init_questions = ' . json_encode($questions) . '</script>';
@@ -221,7 +222,7 @@ HTML;
                 echo '<div style="text-align:center;margin:10px;font-weight:bold;" id="importContainer">';
                 echo $strimportfrom.': <select id="importer">';
                 foreach ($otherbuilders as $o) {
-                    echo "<option value=\"$o->id\">$o->name</option>";
+                    if($teamup->id != $o->id) echo "<option value=\"$o->id\">$o->name</option>";
                 }
                 $strimport = get_string('import', 'mod_teamup');
                 $stror = get_string('or', 'mod_teamup');
@@ -346,10 +347,10 @@ HTML;
 </table></div>
 HTML;
             }
-
+            $submit = get_string('submit');
             echo <<<HTML
     <input type="hidden" name="action" value="submit-questionnaire" />
-    <div style="text-align:center;"><input type="submit" value="Submit" /></div>
+    <div style="text-align:center;"><input type="submit" value="$submit" /></div>
 </form>
 HTML;
 

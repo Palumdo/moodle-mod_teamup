@@ -214,3 +214,12 @@ Le caractère dièse (#) peut être utilisé pour créer des groupes contenant d
 
 si vous utilisez un critère pour grouper les individus semblables, vous pouvez faire apparaître l\'option associée dans le nom du groupe en utilisant le caractère "*", exemple de schéma de dénomination de groupe conseillé : "Groupe # - *"
 (Pensez à définir des options assez courtes pour ce critère pour éviter les noms de groupe trop long.)';
+
+$string['afterdate']                  = 'Vous ne pourrez plus modifier votre questionnaire après cette date.';
+$string['closedate']                  = 'Date de fermeture';
+$string['opendate']                   = 'Date d\'ouverture';
+$string['updateanswer']               = 'Autorise la mise à jour des réponses';
+$string['helperror']                  = 'Vous devez spécifier un course_module ID ou un instance ID.';
+$string['cannotupdate']               = 'Vous ne pouvez pas mettre à jour une fois l\'instance ouverte.';
+$string['idincorrect']                = 'L\'ID du module de cours était incorrect ou mal configuré';
+$string['pleasenever']                = 'Veuillez NE JAMAIS actualiser cette page avec F5 (similaire) ou le bouton d\'actualisation du navigateur. Au lieu de cela, cliquez sur le nom de l\'activité dans le fil d\'Ariane (breadcrumb).';

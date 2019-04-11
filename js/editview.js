@@ -60,7 +60,7 @@ $(function() {
         window.location.href = window.location.href + "&import=" + $(this).prevAll("select:first").val();
     });
     $(".answerText").dblclick(function() {
-      $(this).after().html('<input class="text" id="newvalue" style="width:200px;" value="'+$(this).html()+'"><button onclick="saveAnswer(this,'+$(this).data("id")+');" class="btn btn-primary">X</button>');
+      $(this).after().html('<input class="text" id="newvalue" style="width:200px;" value="'+$(this).html()+'"><button id="savethisAnswer" onclick="saveAnswer(this,'+$(this).data("id")+');" class="btn btn-primary">X</button>');
     });
 
     
@@ -153,6 +153,8 @@ function deleteQuestion(object)
 
 function saveQuestionnaire(url, id)
 {
+    $('#savethisAnswer').click();
+    
     var questions = $("#questions div.question");
     var questiondata = [];
     if (questions.length < 1) {

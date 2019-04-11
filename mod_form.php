@@ -57,18 +57,18 @@ class mod_teamup_mod_form extends moodleform_mod {
         foreach ($groups as $group) {
             $options[$group->id] = $group->name;
         }
-        $mform->addElement('select', 'groupid', 'Group', $options);
+        $mform->addElement('select', 'groupid', get_string('group'), $options);
 
-        $mform->addElement('date_time_selector', 'open', 'Open Date',array('startyear' => 2018,'stopyear'  => 2050,'timezone'=> 99,'step'=> 5));
+        $mform->addElement('date_time_selector', 'open', get_string('opendate', 'mod_teamup'),array('startyear' => 2018,'stopyear'  => 2050,'timezone'=> 99,'step'=> 5));
         $defaulttime = strtotime('12:00:00');
         $defaulttime = strtotime('+2 days', $defaulttime);
         $mform->setDefault('open',  $defaulttime);
-        $mform->addElement('static', 'openInfo', '', 'You will not be able to modify your questionnaire after this date.');
-        $mform->addElement('date_time_selector', 'close', 'Close Date',array('startyear' => 2018,'stopyear'  => 2050,'timezone'=> 99,'step'=> 5));
+        $mform->addElement('static', 'openInfo', '', get_string('afterdate', 'mod_teamup'));
+        $mform->addElement('date_time_selector', 'close', get_string('closedate', 'mod_teamup'),array('startyear' => 2018,'stopyear'  => 2050,'timezone'=> 99,'step'=> 5));
         $defaulttime = strtotime('12:00:00');
         $defaulttime = strtotime('+9 days', $defaulttime);
         $mform->setDefault('close',  $defaulttime);
-        $mform->addElement('checkbox', 'allowupdate', 'Allow updating of answers');
+        $mform->addElement('checkbox', 'allowupdate', get_string('updateanswer', 'mod_teamup')); 
 
         // Add standard elements, common to all modules.
         $features = new stdClass;
@@ -79,7 +79,6 @@ class mod_teamup_mod_form extends moodleform_mod {
 
         // Add standard buttons, common to all modules.
         $this->add_action_buttons();
-
     }
 
     public function definition_after_data() {
@@ -90,7 +89,7 @@ class mod_teamup_mod_form extends moodleform_mod {
             $dta = $mform->getElementValue('open');
             $dt = mktime($dta['hour'][0], $dta['minute'][0], 0, $dta['month'][0], $dta['day'][0], $dta['year'][0]);
             if ($dt < time()) {
-                $el = $mform->createElement('static', 'openlabel', 'Open', date("D d/m/Y H:i", $dt));
+                $el = $mform->createElement('static', 'openlabel', get_string('opendate', 'mod_teamup'), date("D d/m/Y H:i", $dt));
                 $mform->insertElementBefore($el, 'open');
                 $mform->removeElement('open');
                 $mform->addElement('hidden', 'opendt', $dt);

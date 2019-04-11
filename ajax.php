@@ -29,7 +29,7 @@ try {
     $teamup = $DB->get_record('teamup', array('id' => $cm->instance), '*', MUST_EXIST);
 } catch (Exception $e) {
     $output['status'] = 'fail';
-    $output['message'] = 'Course Module ID was incorrect or is misconfigured';
+    $output['message'] = get_string('idincorrect', 'mod_teamup');
 }
 
 require_login($course, true, $cm);
@@ -44,7 +44,7 @@ if (!isset($output['status']) || $output['status'] != 'fail') {
             require_capability('mod/teamup:create', $ctxt);
             if ($teamup->open < time()) {
                 $output['status'] = 'fail';
-                $output['message'] = 'You cannot update a teamup instance once it has opened.';
+                $output['message'] = get_string('cannotupdate', 'mod_teamup');
                 break;
             }
             $questionids = array();

@@ -90,7 +90,5 @@ function validateForm(form) {
       $(this).closest("div.question").addClass("ui-state-error");
     });
     
-    
-    
     return valid;
 }

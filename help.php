@@ -38,7 +38,7 @@ if ($id) {
   $teamup = $DB->get_record('teamup', array('id' => $cm->instance), '*', MUST_EXIST);
 } else {
   if (!$teamup = $DB->get_record('teamup', array('id' => $a), '*', MUST_EXIST)) {
-    print_error('You must specify a course_module ID or an instance ID');
+    print_error(get_string('helperror', 'teamup'));
   }
   list ($course, $cm) = get_course_and_cm_from_instance($teamup, 'teamup');
   $id = $cm->id;

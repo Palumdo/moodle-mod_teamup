@@ -218,3 +218,12 @@ The hash symbol (#) may be used to create groups with names containing numbers. 
 
 If you use a criterion to group similar individuals, you can bring up the associated option in the group name by using the "*" character, example of recommended group naming scheme: "Group # - *"
 (Remember to set quite short options for this criterion to avoid too long group names.)';
+
+$string['afterdate']                  = 'You will not be able to modify your questionnaire after this date.';
+$string['closedate']                  = 'Close Date';
+$string['opendate']                   = 'Open Date';
+$string['updateanswer']               = 'Allow updating of answers';
+$string['helperror']                  = 'You must specify a course_module ID or an instance ID';
+$string['cannotupdate']               = 'You cannot update a teamup instance once it has opened.';
+$string['idincorrect']                = 'Course Module ID was incorrect or is misconfigured';
+$string['pleasenever']                = 'Please NEVER refresh this page with F5(similar) or the navigator refresh button. Instead, please, click on the activity name on the breadcrumb';

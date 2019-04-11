@@ -29,7 +29,7 @@ require_once(dirname(__FILE__).'/lib.php');
 
 $id           = optional_param('id', 0, PARAM_INT);         // The course_module ID, or...
 $instance     = optional_param('instance', 0, PARAM_INT);   // teamup instance ID.
-$courseid       = optional_param('course', 0, PARAM_INT);   // teamup instance ID.
+$courseid     = optional_param('course', 0, PARAM_INT);   // teamup instance ID.
 
 if ($id) {
     list ($course, $cm) = get_course_and_cm_from_cmid($id, 'teamup');
@@ -73,20 +73,20 @@ SELECT * FROM (
               t4.firstname, 
               t4.email,
               t4.idnumber
-         FROM mdl_teamup_response t3,
-              mdl_user            t4,
-              mdl_teamup_answer   t5,
-              mdl_teamup_question t6
+         FROM {teamup_response} t3,
+              {user}            t4,
+              {teamup_answer}   t5,
+              {teamup_question} t6
         WHERE( t3.answerid IN (SELECT t2.id
-                                 FROM mdl_teamup_answer t2
+                                 FROM {teamup_answer} t2
                                 WHERE t2.question IN (SELECT id
-                                                        FROM mdl_teamup_question t1
+                                                        FROM {teamup_question} t1
                                                        WHERE t1.builder = (SELECT id
-                                                                             FROM mdl_teamup tx
+                                                                             FROM {teamup} tx
                                                                             WHERE     course = :param1
                                                                               AND tx.id = (SELECT cm.instance
-                                                                                             FROM mdl_course_modules cm
-                                                                                              JOIN mdl_course c ON c.id = cm.course
+                                                                                             FROM {course_modules} cm
+                                                                                              JOIN {course} c ON c.id = cm.course
                                                                                              WHERE cm.id = :param2
                                                                                            )
                                                                            )
@@ -98,10 +98,10 @@ SELECT * FROM (
           AND t6.id     = t5.question
         GROUP BY nom
         ORDER BY t4.lastname, t4.firstname, t6.question)                      t7 
-            LEFT JOIN (SELECT ta.* FROM mdl_groups_members ta, mdl_groups tb WHERE tb.id = ta.groupid AND tb.courseid = :param3) t10 ON t10.userid = t7.userid 
-            LEFT JOIN (SELECT * FROM mdl_groups    WHERE courseid = :param4)  t9  ON t9.id            = t10.groupid 
-            LEFT JOIN mdl_groupings_groups                                    t12 ON t12.groupid      = t10.groupid
-            LEFT JOIN (SELECT * FROM mdl_groupings WHERE courseid = :param5)  t11 ON t12.groupingid   = t11.id 
+            LEFT JOIN (SELECT ta.* FROM {groups_members} ta, {groups} tb WHERE tb.id = ta.groupid AND tb.courseid = :param3) t10 ON t10.userid = t7.userid 
+            LEFT JOIN (SELECT * FROM {groups}    WHERE courseid = :param4)  t9  ON t9.id            = t10.groupid 
+            LEFT JOIN {groupings_groups}                                    t12 ON t12.groupid      = t10.groupid
+            LEFT JOIN (SELECT * FROM {groupings} WHERE courseid = :param5)  t11 ON t12.groupingid   = t11.id 
   GROUP BY nom, groupement, groupe, groupe_date
   ORDER BY groupement, groupe, groupe_date, nom) 
 UNION
@@ -122,17 +122,17 @@ UNION
               t4.firstname, 
               t4.email,
               t4.idnumber
-         FROM (SELECT t3.* FROM mdl_user t3, mdl_role_assignments t1,mdl_context t2 WHERE t1.contextid = t2.id AND t1.roleid = 5 AND t3.id = t1.userid AND t2.instanceid  = :param6) t4
+         FROM (SELECT t3.* FROM {user} t3, {role_assignments} t1,{context} t2 WHERE t1.contextid = t2.id AND t1.roleid = 5 AND t3.id = t1.userid AND t2.instanceid  = :param6) t4
         WHERE t4.id NOT IN (SELECT DISTINCT t3.userid
-                           FROM mdl_teamup_response t3,
-                                mdl_teamup_answer t5,
-                                mdl_teamup_question t6
+                           FROM {teamup_response} t3,
+                                {teamup_answer} t5,
+                                {teamup_question} t6
                           WHERE t6.builder = (SELECT id
-                                                FROM mdl_teamup tx
+                                                FROM {teamup} tx
                                                WHERE course = :param7
                                                  AND tx.id = (SELECT cm.instance
-                                                                FROM mdl_course_modules cm
-                                                                JOIN mdl_course c ON c.id = cm.course
+                                                                FROM {course_modules} cm
+                                                                JOIN {course} c ON c.id = cm.course
                                                                 WHERE cm.id = :param8
                                                               )
                                               )
@@ -141,10 +141,10 @@ UNION
                          )
         GROUP BY nom
         ORDER BY t4.lastname, t4.firstname)                    t7 
-            LEFT JOIN (SELECT ta.* FROM mdl_groups_members ta, mdl_groups tb WHERE tb.id = ta.groupid AND tb.courseid = :param9) t10 ON t10.userid = t7.userid 
-            LEFT JOIN (SELECT * FROM mdl_groups    WHERE courseid = :param10)  t9  ON t9.id            = t10.groupid 
-            LEFT JOIN mdl_groupings_groups                                     t12 ON t12.groupid      = t10.groupid
-            LEFT JOIN (SELECT * FROM mdl_groupings WHERE courseid = :param11)  t11 ON t12.groupingid   = t11.id 
+            LEFT JOIN (SELECT ta.* FROM {groups_members} ta, {groups} tb WHERE tb.id = ta.groupid AND tb.courseid = :param9) t10 ON t10.userid = t7.userid 
+            LEFT JOIN (SELECT * FROM {groups}    WHERE courseid = :param10)  t9  ON t9.id            = t10.groupid 
+            LEFT JOIN {groupings_groups}                                     t12 ON t12.groupid      = t10.groupid
+            LEFT JOIN (SELECT * FROM {groupings} WHERE courseid = :param11)  t11 ON t12.groupingid   = t11.id 
   GROUP BY nom, groupement, groupe, groupe_date
   ORDER BY groupement, groupe, groupe_date, nom) 
 ) aaa ORDER BY groupement,groupe,groupe_date,nom
@@ -155,14 +155,14 @@ $result = $DB->get_records_sql($sql, $params);
     
 $output = '<table class="table table-bordered">
       <tr>  
-        <th>Groupement</th>  
-        <th>Groupe</th>  
-        <th>Creation</th>  
-        <th>Prénom</th>  
-        <th>Nom</th> 
+        <th>'.get_string('groupings', 'group').'</th>  
+        <th>'.get_string("group").'</th>  
+        <th>'.get_string("date").'</th>  
+        <th>'.get_string("firstname").'</th>  
+        <th>'.get_string("lastname").'</th> 
         <th>NOMA</th>
-        <th>Email</th>  
-        <th>Response</th>  
+        <th>'.get_string("email").'</th>  
+        <th>'.get_string("answer").'</th>  
       </tr>';
      
 foreach ($result as $row) {
