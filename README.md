@@ -28,7 +28,9 @@ Then add block/poll to your gitignore.
 ##Documentation
 https://github.com/Palumdo/teamup/wiki/Documentation
 ##Screenshots
-
+![Alt text](https://moodle.org/pluginfile.php/50/local_plugins/plugin_screenshots/2254/group%20creation%202.png)
+![Alt text](https://moodle.org/pluginfile.php/50/local_plugins/plugin_screenshots/2254/group%20creation.png)
+![Alt text](https://moodle.org/pluginfile.php/50/local_plugins/plugin_screenshots/2254/questions.png)
 ##Credits
 Maintainer: Dominique Palumbo (dominique.palumbo@uclouvain.be)  
 Original developer: Teambuilder was developed at the University of New South Wales (https://www.unsw.edu.au) by Adam Olley
