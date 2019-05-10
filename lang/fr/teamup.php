@@ -223,3 +223,7 @@ $string['helperror']                  = 'Vous devez spécifier un course_module 
 $string['cannotupdate']               = 'Vous ne pouvez pas mettre à jour une fois l\'instance ouverte.';
 $string['idincorrect']                = 'L\'ID du module de cours était incorrect ou mal configuré';
 $string['pleasenever']                = 'Veuillez NE JAMAIS actualiser cette page avec F5 (similaire) ou le bouton d\'actualisation du navigateur. Au lieu de cela, cliquez sur le nom de l\'activité dans le fil d\'Ariane (breadcrumb).';
+
+$string['privacy:metadata:teamup_response']           = 'Informations sur les réponses de l\'utilisateur à une activité teamup donnée';
+$string['privacy:metadata:teamup_response:answerid']  = 'La réponse choisie par l\'utilisateur.';
+$string['privacy:metadata:teamup_response:userid']    = 'L\'utilisateur qui a répondu.';

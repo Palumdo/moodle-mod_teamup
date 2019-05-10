@@ -23,6 +23,10 @@
  * @author     Morgan Harris
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @modified by Dominique Palumbo (UCLouvain)
+ * @Modifications 
+    teambuilder was replaced by teamup in the file (same structure)
+    add of 
+      function teamup_get_questions($id, $userid = null) 
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -148,7 +152,7 @@ function teamup_scale_used_anywhere($scaleid) {
 /**
  * Get questions for a particular team builder questionnaire
  *
- * @author Dominique Palumbo 
+ * @author Dominique Palumbo (Added by UCLouvain)
  * @param int $id (builder), int $userid (if specified return the data for this user only if not for all)
  * @return recordsets of questions
  */
@@ -225,29 +229,3 @@ function teamup_supports($feature) {
             return null;
     }
 }
-
-
-/**
- * add an icon after the activities to allow teacher to down load an export of the students answers
- *
- * @author Dominique Palumbo 
- * @param cm_info $cm context info
- * @return nothing
- */
-function teamup_cm_info_view(cm_info $cm) {
-   global $DB,$USER;
-   
-  $role     = $DB->get_record('role', array('shortname' => 'editingteacher'));
-  $context  = context_module::instance($cm->id);
-  $isTeatcher = false;
-  if (has_capability('mod/teamup:create', $context)) {
-    $isTeatcher = true;
-  }
-
-  if(!$isTeatcher) return false;
-   
-  if (!$teamup = $DB->get_record('teamup', array('id'=>$cm->instance))) {
-    return false;
-  }
-  $cm->set_after_link(' <a alt="Export Excel" title="Export Excel" href="/mod/teamup/export.php?id='.$cm->id.'&instance='.$cm->instance.'&course='.$cm->course.'"><img class="icon navicon" alt="Export" src="/theme/image.php/uclouvain/core/1539865978/i/report" tabindex="-1"></a>');
-}      

@@ -21,6 +21,10 @@
  * @copyright  UNSW
  * @author     UNSW
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @modified by Dominique Palumbo (UCLouvain)
+ * @Modifications 
+    teambuilder was replaced by teamup in the file (same structure)
+    no other changes !
  */
 
 require_once(dirname(__FILE__).'/../../config.php');

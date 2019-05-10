@@ -22,6 +22,48 @@
  * @author     Adam Olley
  * @package fork   mod_teamup
  * @modified by  Palumbo Dominique (UCLouvain)
+ * @Modifications 
+    teambuilder was replaced by teamup in the file (same structure)
+    The sub criterion was removed 
+    The and & or operations was replaced by 
+
+    -Group similar individuals	= Form groups whose members are similar to defined 
+    criteria. Creation of homogeneous groups. Applied to discrete values, with no 
+    obligation whatsoever numerical.
+
+    -Disperse similar individuals	= Distribute qualifying students across groups. 
+    Applied to discrete values, with no obligation whatsoever numerical.
+
+    -Avoid minorities	= Divide students so that at least two students sharing a 
+    criterion are in the same group (especially for minorities). 
+    Applied to discrete values, with no obligation whatsoever numerical.
+
+    -Balancing Level	= Create groups that are \"right\", whose total forces are 
+    similar in all groups (usually based on academic results). Applied to numerical 
+    values ​​(continuous and discrete).
+
+    These rules to create group was definied in the GROUPENG python project. And 
+    apply to teambuilder to become Team Up.
+
+    A filter to remove students with no answers was also add.
+    Actions like optimize (launch again the algorithm)
+    Or Equalize that try to make team with the same size.
+
+    A report was also add with the result and the possibility to see quickly groups 
+    that not feet to all criterion.
+    ( ***from the doc***
+        The number of teams fixes the number of students in each group. For example, 
+        123 students in 31 groupes makes 4 individuals in groups.
+        Preview : This button launches the group creation with the selected 
+        criterias.
+        Reset : This button empties all groups and sets students in the part non 
+        affected to groups.
+        Optimize : This button makes some switches in students distribution to 
+        improve the criterias. Succes is not guaranteed but you may repeat 
+        optimization several times.
+        Equalize : Force to equalize the number of student in each groups. 
+        Sometimes necessary after optimization.
+    )
 
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -223,7 +265,6 @@ if (!empty($feedback)) {
 
   echo <<<HTML
 </div></div>
-  <!--- <div id="excluded" style="background-color:#AACCFF;min-height:100px;width:100%;"></div> --->
   <div id="teams">
   </div>
 </div>

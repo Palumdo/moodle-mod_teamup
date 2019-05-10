@@ -20,8 +20,30 @@
  * @copyright  UNSW
  * @author     UNSW
  * @author     Adam Olley
- * @author of modification  Palumbo Dominique (UCLouvain)
+ * @modified by  Palumbo Dominique (UCLouvain)
+ * @modification 
+    The and & or operations was replaced by 
 
+    -Group similar individuals	= Form groups whose members are similar to 
+    defined criteria. Creation of homogeneous groups. Applied to discrete values
+    , with no obligation whatsoever numerical.
+
+    -Disperse similar individuals	= Distribute qualifying students across groups. 
+    Applied to discrete values, with no obligation whatsoever numerical.
+
+    -Avoid minorities	= Divide students so that at least two students sharing a 
+    criterion are in the same group (especially for minorities). 
+    Applied to discrete values, with no obligation whatsoever numerical.
+
+    -Balancing Level	= Create groups that are \"right\", whose total forces are 
+    similar in all groups (usually based on academic results). Applied to 
+    numerical values ​​(continuous and discrete).
+
+    These rules to create group was definied in the GROUPENG python project. 
+    GroupEng was written by Thomas Dimiduk while a grad student 
+      at Harvard (PhD 2016) with Kathryn Dimiduk of Cornell Engineering's 
+      James McCormick Family Teaching Excellence Institute. 
+    And apply to teambuilder to become Team Up.
  */
  define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
   var maxwidth = 85;                // Maximum width of a studentbox in px. initialised as the minimum possible width.
@@ -992,10 +1014,8 @@
       if (v === false) {
         delete assignedStudents[k];
         delete unassignedStudents[k];
-        // $('#student-' + k).remove();         // !!!!!!!!!!!!!!!!!!!!!!!!! Really delete it  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // aTeamTrash[k] = students[k];
       } 
-      nbStudent++;                              // NO MORE ELSE !!!!
+      nbStudent++;                              
     });
 
     aCommand = [];                              // Keep the list of command (cluster, etc), id's too look for and question ID
@@ -1055,7 +1075,7 @@
     if(nbTime > 5) nbTime = 5;
 
     for(nPlay=0;nPlay<nbTime;nPlay++) {
-    // ATTENTION the variable i is used inside each call ! Must be changed
+    // ATTENTION the variable i is used inside each call 
       for(i=0;i < aCommand.length;i++) {        // Loop criteria
         switch(aCommand[i][0]) {
           case strings.cluster    :             // At least 2 or no one don't isolate minorirty...

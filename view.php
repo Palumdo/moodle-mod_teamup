@@ -21,6 +21,10 @@
  * @author     UNSW
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @modified by Dominique Palumbo (UCLouvain)
+ * @modification
+    the string teambuilder was replaced by teampup (same structure)
+    The main difference is the management of the new types (two, three, four, five)
+    and also the type in multi-language
  */
 
 require_once(dirname(__FILE__).'/../../config.php');
@@ -37,6 +41,7 @@ $a            = optional_param('a', 0, PARAM_INT);  // teamup instance ID.
 $preview      = optional_param('preview', 0, PARAM_INT);
 $action       = optional_param('action', null, PARAM_TEXT);
 
+// Modification by UCLouvain
 $displaytypes = [
   "one"         => get_string('oneOption',        'mod_teamup'),
   "any"         => get_string('anyOption',        'mod_teamup'),
@@ -46,6 +51,7 @@ $displaytypes = [
   "four"        => get_string('fourOption',       'mod_teamup'),
   "five"        => get_string('fiveOption',       'mod_teamup'),
 ];
+// END UCLouvain modification
 
 if ($id) {
     list ($course, $cm) = get_course_and_cm_from_cmid($id, 'teamup');
@@ -74,7 +80,6 @@ $event->add_record_snapshot('teamup', $teamup);
 $event->trigger();
 
 // Check out if we've got any submitted data.
-
 if ($action == "submit-questionnaire") {
     $questions = teamup_get_questions($teamup->id, $USER->id);
     if (has_capability('mod/teamup:respond', $ctxt)) {
@@ -229,7 +234,7 @@ HTML;
                 echo '</select><button type="button" id="importButton">'.$strimport.'</button><br/>'.$stror.'</div>';
 
             }
-
+            // Modification by UCLouvain
             $straddanewquestion   = get_string('addanewquestion',   'mod_teamup');
             $straddnewquestion    = get_string('addnewquestion',    'mod_teamup');
             $strquestion          = get_string('question');
@@ -242,6 +247,7 @@ HTML;
             $strselectthree       = get_string('selectthree',       'mod_teamup');
             $strselectfour        = get_string('selectfour',        'mod_teamup');
             $strselectfive        = get_string('selectfive',        'mod_teamup');
+
             echo <<<HTML
 <div style="text-align:center;font-weight:bold;margin:10px;">$straddanewquestion</div>
 <div style="text-align:center;">
@@ -278,6 +284,7 @@ HTML;
 </div>
 </div>
 HTML;
+            // END Modification by UCLouvain
         }
     } else if (($mode == "preview") || ($mode == "student")) {
         $questions = teamup_get_questions($teamup->id, $USER->id);
@@ -327,12 +334,13 @@ HTML;
                         $type = "checkbox";
                         $name = "[]";
                     }
+                    // Modification by UCLouvain
                     $class = $q->type == "atleastone" ? "atleastone" : "";
                     if($q->type == "two")   $class = "two";
                     if($q->type == "three") $class = "three";
                     if($q->type == "four")  $class = "four";
                     if($q->type == "five")  $class = "five";
-                    
+                    // END Modification by UCLouvain
                     $inputarr = ['type' => $type, 'name' => "question-{$q->id}{$name}", 'value' => $a->id, 'class' => $class];
                     if ($a->selected) {
                         $inputarr['checked'] = 'checked';

@@ -1,4 +1,4 @@
-h2 {
+.path-mod-teamup h2 {
   font-size                   : 18px !important;
 }
 .mod-teamup th {
@@ -330,12 +330,12 @@ h2 {
 }
 
 @media (min-width:768px) {
-  .inline-block-row {
+  .path-mod-teamup .inline-block-row {
     word-spacing              : -1em;
     letter-spacing            : -1em;
     overflow                  : hidden;
   }
-  .inline-block-row .col-sm-4 {
+  .path-mod-teamup .inline-block-row .col-sm-4 {
     word-spacing              : normal;
     vertical-align            : top;
     letter-spacing            : normal;
@@ -344,12 +344,12 @@ h2 {
   }
 }
 @media (min-width:992px) {
-    .inline-block-row .col-md-3 {
+    .path-mod-teamup .inline-block-row .col-md-3 {
     float                     : none;
   }
 }
 
-.reload { 
+.path-mod-teamup .reload { 
   font-family                 : Lucida Sans Unicode;
   background-color            : #EEE;
   background-position         : center center;
@@ -361,14 +361,14 @@ h2 {
   font-size                   : 12px;
 }
 
-.studentui {
+.path-mod-teamup .studentui {
   background-color            : #fff;
   border-radius               : 5px;
   border                      : 1px solid #BBB;
   font-size                   : 12px;
 }  
 
-.border-rounded-right {
+.path-mod-teamup .border-rounded-right {
   border-top-left-radius      : 5px;
   border-bottom-left-radius   : .25rem;
   border                      : 1px solid #007bff;
@@ -402,48 +402,35 @@ table.mod-teamup-table tr th:last-child {
   border-bottom-right-radius  : 6px;
 }
 
-.mylittlebox {
+.path-mod-teamup .path-mod-teamup .mylittlebox {
   font-size                  : 12px; 
 } 
 
-legend {
+.path-mod-teamup legend {
   cursor                    : pointer;
 }
 
-.myHide:before{
+.path-mod-teamup .myHide:before{
   content                   : '__';
-  background                : url("/theme/image.php/uclouvain/core/1528369832/t/collapsed") left center no-repeat;
+  background                : url("css/collapsed.png") left center no-repeat;
   width                     : 16px;
   height                    : 16px;
   color                     : rgba(255, 255, 255, 1);
 }
 
-.myShow:before{
+.path-mod-teamup .myShow:before{
   content                   : '__';
- 	background                : url("/theme/image.php/uclouvain/core/1528369832/t/expanded") left center no-repeat;
+ 	background                : url("css/expanded.png") left center no-repeat;
   width                     : 16px;
   height                    : 16px;
   color                     : rgba(255, 255, 255, 1);
 }
 
-#progressbar {
-    width                   : 10%;
-    height                  : 30px;
-    background-color        : #4CAF50;
-    text-align              : center; 
-    line-height             : 30px; 
-    color                   : white;
-}
-
-#nbteam:disabled {
+.path-mod-teamup #nbteam:disabled {
     background              : #ffffff;
 }
 
-.helptooltip {
-  
-}  
-
-.studentdel {
+.path-mod-teamup .studentdel {
     float                   : right;
     cursor                  : pointer;
     color                   : black;
@@ -452,13 +439,6 @@ legend {
     margin-top              : -5px;
 }   
 
-.studentdel:hover {
+.path-mod-teamup .studentdel:hover {
     font-size               : 18px;
 }   
-
-.breadcrumb > li + li::before {
-    padding                 : 0 5px;
-    color                   : #ccc;
-    content                 : "" !important;
-    background              : transparent;
-}

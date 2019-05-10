@@ -22,6 +22,10 @@
  * @copyright  2017 Blackboard Inc
  * @author of modification  Palumbo Dominique (UCLouvain)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @modified by  Palumbo Dominique (UCLouvain)
+ * @Modifications 
+    teambuilder was replaced by teamup in the file (same structure)
+    tabs is added (help)
  */
 namespace mod_teamup\output;
 defined('MOODLE_INTERNAL') || die;

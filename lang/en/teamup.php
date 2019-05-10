@@ -227,3 +227,7 @@ $string['helperror']                  = 'You must specify a course_module ID or 
 $string['cannotupdate']               = 'You cannot update a teamup instance once it has opened.';
 $string['idincorrect']                = 'Course Module ID was incorrect or is misconfigured';
 $string['pleasenever']                = 'Please NEVER refresh this page with F5(similar) or the navigator refresh button. Instead, please, click on the activity name on the breadcrumb';
+
+$string['privacy:metadata:teamup_response']           = 'Information about the user\'s responses on a given teamup activity';
+$string['privacy:metadata:teamup_response:answerid']  = 'The answer the user chose.';
+$string['privacy:metadata:teamup_response:userid']    = 'The user who made the response.';
