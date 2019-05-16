@@ -36,6 +36,7 @@ $PAGE->requires->jquery_plugin('ui-css');
 $PAGE->requires->js("/mod/teamup/js/json2.js");
 $PAGE->requires->css('/mod/teamup/styles.css');
 
+
 $id           = optional_param('id', 0, PARAM_INT); // The course_module ID, or...
 $a            = optional_param('a', 0, PARAM_INT);  // teamup instance ID.
 $preview      = optional_param('preview', 0, PARAM_INT);
@@ -217,7 +218,7 @@ HTML;
             // New question form.
             $onclick = "saveQuestionnaire('{$CFG->wwwroot}/mod/teamup/ajax.php', {$id})";
             echo '<div style="display:none;text-align:center;" id="savingIndicator"></div>';
-            echo '<div style="text-align:center;"><button type="button" id="saveQuestionnaire" onclick="'.$onclick.'">';
+            echo '<div style="text-align:center;"><button class="btn btn-default" type="button" id="saveQuestionnaire" onclick="'.$onclick.'">';
             echo get_string('savequestionnaire', 'mod_teamup').'</button></div>';
 
             if (empty($questions)) {
@@ -231,7 +232,7 @@ HTML;
                 }
                 $strimport = get_string('import', 'mod_teamup');
                 $stror = get_string('or', 'mod_teamup');
-                echo '</select><button type="button" id="importButton">'.$strimport.'</button><br/>'.$stror.'</div>';
+                echo '</select><button class="btn btn-default" type="button" id="importButton">'.$strimport.'</button><br/>'.$stror.'</div>';
 
             }
             // Modification by UCLouvain
@@ -272,13 +273,13 @@ HTML;
         <tr>
             <th scope="row">$stranswers</th>
             <td id="answerSection"><input type="text" name="answers[]" class="text" /><br/>
-                <button onclick="addNewAnswer();" type="button">+</button>
-                <button onclick="removeLastAnswer();" type="button">-</button>
+                <button class="btn btn-default" onclick="addNewAnswer();" type="button">+</button>
+                <button class="btn btn-default" onclick="removeLastAnswer();" type="button">-</button>
             </td>
         </tr>
         <tr>
             <td></td>
-            <td><button id="addNewQuestion" type="button" onclick="addNewQuestion();">$straddnewquestion</button></td>
+            <td><button class="btn btn-default" id="addNewQuestion" type="button" onclick="addNewQuestion();">$straddnewquestion</button></td>
         </tr>
     </table>
 </div>

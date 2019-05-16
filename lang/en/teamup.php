@@ -143,10 +143,10 @@ $string['prettify']                   = 'Optimize';
 $string['abc']                        = 'Serie #';
 $string['groupcreationsuccess']       = 'The groups were created with success.';
 $string['analyzeclustercriterion']    = 'The number of students meeting these criteria is <b> {nbstudent} </b> distributed in <b> {nbteam} </b> teams';
-$string['analyzeclusterwarning']      = '<br><span style=\"color:red;\">Attention, he can not have two students in all groups with these criteria.</span>';
+$string['analyzeclusterwarning']      = '<br><span style="color:red;">Attention, he can not have two students in all groups with these criteria.</span>';
 $string['analyzeclustersuccess']      = '<br>There may be two students in all groups with these criteria.';
-$string['analyzeaggregatewarning']    = '<br><span style=\"color:{color};\"> Criterion {answer}: <b> {nbstudent} </b> => They\'ll have probably {nbgroup} groups of {nbstudentgroup} students with {reste} students spread</span>';
-$string['analyzeaggregatewarningOK']    = '<br><span style=\"color:{color};\"> Criterion {answer}: <b> {nbstudent} </b> => They\'ll have probably {nbgroup} groups of {nbstudentgroup} students</span>';
+$string['analyzeaggregatewarning']    = '<br><span style="color:{color};"> Criterion {answer}: <b> {nbstudent} </b> => They\'ll have probably {nbgroup} groups of {nbstudentgroup} students with {reste} students spread</span>';
+$string['analyzeaggregatewarningOK']  = '<br><span style="color:{color};"> Criterion {answer}: <b> {nbstudent} </b> => They\'ll have probably {nbgroup} groups of {nbstudentgroup} students</span>';
 $string['noanswer']                   = 'This student has not responded.';
 $string['analyzedistributesuccess']   = 'No problem to distibute it in <b> {nbteam} </b> teams';
 $string['analyzedistributewarning']   = '<span style=\"color:red;\">Attention problem to distibute it in <b> {nbteam} </b> teams</span>';
@@ -194,7 +194,6 @@ $string['helpserie']                  = '<p>
                                           Once the series is created, the serial button disappears. To make it reappear if necessary, you must delete all the series groups. <br>
                                           But, it\'s still possible to create them by prefixing the group name by Series. <br>
                                         </p>';
-      
 $string['helpserie_help']             = 'Series Concep';      
 $string['answersSubmitted']           = 'Your answers were submitted.';
 
@@ -208,7 +207,6 @@ $string['fiveOption']                 = 'Select five of the following:';
 
 $string['deleteAllRed']               = 'Delete all students without answer';
 $string['keepAllRed']                 = 'Keep only students without answer';
-
 $string['equalizeHelp']               = 'Force to equalize the number of student in each groups. Sometimes necessary after optimization';
 $string['prettifyHelp']               = 'This button makes some switches in students distribution to improve the criterias. Succes is not guaranteed but you may repeat optimization several times.';
 
@@ -231,3 +229,12 @@ $string['pleasenever']                = 'Please NEVER refresh this page with F5(
 $string['privacy:metadata:teamup_response']           = 'Information about the user\'s responses on a given teamup activity';
 $string['privacy:metadata:teamup_response:answerid']  = 'The answer the user chose.';
 $string['privacy:metadata:teamup_response:userid']    = 'The user who made the response.';
+
+$string['pleasequestion']              = 'Enter a question, please';
+$string['pleaseatleastonequestion']    = 'Enter at least a question, please';
+$string['jserror01']                   = 'Enter at least two answers, please';
+$string['jserror02']                   = 'Enter at least four answers, please';
+$string['jserror03']                   = 'Enter at least five answers, please';
+$string['jserror04']                   = 'Enter at least six answers, please';
+$string['saving']                      = 'Saving...';
+$string['saved']                       = 'Saved!';

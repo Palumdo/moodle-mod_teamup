@@ -325,7 +325,6 @@
 .path-mod-teamup .creategroups {
   font-size                   : 1.5em;
   font-weight                 : bold;
-  width                       : 220px;
   height                      : 80px;
 }
 
@@ -442,3 +441,11 @@ table.mod-teamup-table tr th:last-child {
 .path-mod-teamup .studentdel:hover {
     font-size               : 18px;
 }   
+
+.path-mod-teamup .modal-title {
+    width                   : 100%;
+    text-align              : center;
+    color                   : white;
+    background              : #666;
+    font-weight             : bold;
+}

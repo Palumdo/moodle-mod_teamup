@@ -48,11 +48,13 @@ class renderer extends plugin_renderer_base {
     $previewurl       = new moodle_url('/mod/teamup/view.php',  ['preview' => 1, 'id' => $id]);
     $buildurl         = new moodle_url('/mod/teamup/build.php', ['id' => $id]);
     $helpurl          = new moodle_url('/mod/teamup/help.php',  ['id' => $id]);
+    $imgico           = new moodle_url('/mod/teamup/css/help.png');
+    
     $tabs = [
       new tabobject("questionnaire" , $questionnaireurl , get_string('questionnaire'    , 'teamup')),
       new tabobject("preview"       , $previewurl       , get_string('previewQuestion'  , 'teamup')),
       new tabobject("build"         , $buildurl         , get_string('buildteams'       , 'teamup')),
-      new tabobject("help"          , $helpurl          , "<img alt='Help' title='Help' src='/mod/teamup/css/help.png'/>"),
+      new tabobject("help"          , $helpurl          , "<img alt='Help' title='Help' src='".$imgico."'/>"),
     ];
     return print_tabs([$tabs], $selected, null, null, true);
   }

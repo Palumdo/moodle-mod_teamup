@@ -125,17 +125,8 @@ $PAGE->set_heading($course->fullname);
 
 $output = $PAGE->get_renderer('mod_teamup');
 echo $output->header();
-echo ('<div id="protectAll" class="modal" style="position:absolute;top:50%;left:25%;width:50%;margin:0;padding:0;background:white;display:none;">
-         <div class="modal-dialog">
-           <div class="modal-content">
-             <div class="modal-header">
-               <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-               <h4 class="modal-title">'.get_string('pleasewait', 'mod_teamup').'</h4>
-             </div>
-             <div id="" class="modal-body"></div>
-             <div class="modal-footer"></div>
-           </div><!-- /.modal-content -->
-         </div><!-- /.modal-dialog -->
+echo ('<div id="protectAll" class="modal" style="display:none;">
+        <h4 class="modal-title">'.get_string('pleasewait', 'mod_teamup').'</h4>
        </div><!-- /.modal -->');
 
 if (!is_null($action) && $action == "create-groups") {
@@ -182,12 +173,15 @@ if (!empty($feedback)) {
   echo '  </div>';
   echo '</div>';
 } else { 
+  $url          = new moodle_url('/mod/teamup/export/xls/export.php?id='.$cm->id);  
+  $imgico       = new moodle_url('/mod/teamup/css/help.png');
+  $imgicoxls    = new moodle_url('/mod/teamup/css/excel.png');
   echo '<fieldset>
-          <legend class="myShow">'.get_string('groupName', 'mod_teamup').'</legend>
+          <legend class="myShow">'.get_string('groupName', 'mod_teamup').'&nbsp;<a alt="Export Excel" title="Export Excel" href="'.$url.'" target="_outside"><img src="'.$imgicoxls.'" width="24" /></a></legend>
           <div>
            '.get_string('groupSchemaName', 'mod_teamup').'             
            <span class="helptooltip">
-              <a href="'.$CFG->httpswwwroot.'/help.php?component=teamup&amp;identifier=namingscheme&amp;lang='.current_language().'" title="'.get_string('help').'" aria-haspopup="true" target="_blank" id="yui_3_17_2_1_1531814373153_307"><img style="width:32px;" class="icon iconhelp" alt="'.get_string('help').'" title="'.get_string('help').'" src="/theme/image.php/uclouvain/core/1528214972/help"></a>
+              <a href="'.$CFG->httpswwwroot.'/help.php?component=teamup&amp;identifier=namingscheme&amp;lang='.current_language().'" title="'.get_string('help').'" aria-haspopup="true" target="_blank" id="yui_3_17_2_1_1531814373153_307"><img width="32" class="icon iconhelp" alt="'.get_string('help').'" title="'.get_string('help').'" src="'.$imgico.'"></a>
             </span>: <input name="namingscheme" value="'.get_string('groupTitle', 'mod_teamup').' #" id="id_namingscheme" type="text" style="height:26px;margin-top:10px;">
           </div>
         </fieldset>';
@@ -196,12 +190,12 @@ if (!empty($feedback)) {
 
   $buttons = [
         html_writer::tag('span',get_string('numberofteams', 'mod_teamup'). ' :',['id' => 'placeithere']),
-        html_writer::tag('button', html_writer::tag('strong', get_string('preview', 'mod_teamup')),['type' => 'button', 'id' => 'buildteams', 'class' => '']),
-        html_writer::tag('button', get_string('resetteams', 'mod_teamup'), ['type' => 'button', 'id' => 'resetteams', 'class' => '']),
-        html_writer::tag('button', get_string('prettify',   'mod_teamup'), ['type' => 'button', 'id' => 'prettify', 'style' => '', 'title' => get_string('prettifyHelp', 'mod_teamup')]),
-        html_writer::tag('button', get_string('equalize',   'mod_teamup'), ['type' => 'button', 'id' => 'equalize', 'style' => '', 'title' => get_string('equalizeHelp', 'mod_teamup')]),
+        html_writer::tag('button', html_writer::tag('strong', get_string('preview', 'mod_teamup')),['type' => 'button', 'id' => 'buildteams', 'class' => 'btn btn-default']),
+        html_writer::tag('button', get_string('resetteams', 'mod_teamup'), ['type' => 'button', 'id' => 'resetteams', 'class' => 'btn btn-default']),
+        html_writer::tag('button', get_string('prettify',   'mod_teamup'), ['type' => 'button', 'id' => 'prettify', 'class' => 'btn btn-default', 'title' => get_string('prettifyHelp', 'mod_teamup')]),
+        html_writer::tag('button', get_string('equalize',   'mod_teamup'), ['type' => 'button', 'id' => 'equalize', 'class' => 'btn btn-default', 'title' => get_string('equalizeHelp', 'mod_teamup')]),
   ];
-  echo '<div style="width:100%;text-align:right;margin-top:5px;padding-right:250px;"><button id="addnewcriterion">'.get_string('addnewcriterion', 'mod_teamup').'</button></div>';
+  echo '<div style="width:100%;text-align:right;margin-top:5px;padding-right:250px;"><button class="btn btn-default" id="addnewcriterion">'.get_string('addnewcriterion', 'mod_teamup').'</button></div>';
 
   echo '<div class="ui-widget" style="text-align:center;margin-top:5px;">';
   echo '  <div style="display:inline-block; padding-left:10px; padding-right:10px;width:100%;" class="ui-state-highlight ui-corner-all">';
@@ -232,12 +226,11 @@ if (!empty($feedback)) {
   echo get_string('aggFilter', 'mod_teamup') . ' : <select id="series">';
   echo $groups;
   echo '</select>';  
-  echo html_writer::tag('button', get_string('deleteAllRed', 'mod_teamup'), ['type' => 'button', 'id' => 'deleteallred', 'style' => '']);
-  echo html_writer::tag('button', get_string('keepAllRed',   'mod_teamup'), ['type' => 'button', 'id' => 'keepallred', 'style' => '']);
+  echo html_writer::tag('button', get_string('deleteAllRed', 'mod_teamup'), ['type' => 'button', 'id' => 'deleteallred', 'class' => 'btn btn-default', 'style' => 'margin-right:5px;margin-left:5px;']);
+  echo html_writer::tag('button', get_string('keepAllRed',   'mod_teamup'), ['type' => 'button', 'id' => 'keepallred', 'class' => 'btn btn-default']);
   
-  $unassignedheading = html_writer::tag('h2', get_string('unassignedtoteams', 'mod_teamup'));
   echo html_writer::start_div('', ['id' => 'unassigned']);
-  echo $unassignedheading.$unassignedbutton;
+  echo html_writer::tag('h2', get_string('unassignedtoteams', 'mod_teamup'));
   echo html_writer::start_div('sortable');
 
   foreach ($students as $s) {
@@ -287,7 +280,7 @@ if (!empty($feedback)) {
 
     
 <div style="text-align:center;margin:15px 50px 0px;border-top:1px solid black;padding-top:15px;">
-  <button type="button" onclick="$('#createGroupsForm').slideDown(300);" class="creategroups">$strcreategroups</button>
+  <button type="button" onclick="$('#createGroupsForm').slideDown(300);" class="creategroups btn btn-default">$strcreategroups</button>
   <div style="display:none" id="createGroupsForm"><p>$strconfirmgroupbuilding</p>
     <table class="mod-teamup-table" style="margin:auto;width:100%;background:transparent;margin-bottom:5px;">
       <tr id="nameofgroup">
@@ -311,8 +304,8 @@ if (!empty($feedback)) {
         <td style="text-align:left;"><input type="checkbox" checked="checked" name="nogrouping" id="nogrouping" value="1" /></td>
       </tr>
     </table>
-    <button type="button" onclick="$('#createGroupsForm').slideUp(300);">$strcancel</button>&nbsp
-    <button type="button" id="creategroups">$strok</button>
+    <button class="btn btn-default" type="button" onclick="$('#createGroupsForm').slideUp(300);">$strcancel</button>&nbsp
+    <button class="btn btn-default" type="button" id="creategroups">$strok</button>
   </div>
 </div>
 HTML;

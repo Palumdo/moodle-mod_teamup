@@ -1,9 +1,21 @@
 // This may be set to true later in the page.
-var interaction_disabled = false;
-$(function() {
+var interaction_disabled    = false;
+var str                     = [];
+var typesDisplay            = {};
+var msgDisplay            = {};
 
-    for (var i in init_questions)
-    {
+$(function() {
+    $.ajax({
+      dataType: "json",
+      async: false,
+      url: "strings.php",
+      success: function(data){
+          str = data.trans;
+          buildstrings();
+      }
+    });
+
+    for (var i in init_questions)    {
       
         $("#question-" + i).data("question", init_questions[i]);
         $("#question-" + i + " div.qobject").html(JSON.stringify(init_questions[i]));
@@ -12,8 +24,7 @@ $(function() {
         x.html(typesDisplay[x.html()]);
     }
 
-    if(interaction_disabled == false)
-    {
+    if(interaction_disabled == false)    {
         $("#questions").sortable({handle : '.handle', axis : 'y'});
         $("#questions .answers ul").sortable({axis : 'y'}).find("li").css("cursor","default");
 
@@ -39,9 +50,7 @@ $(function() {
                 $("#newQuestionForm input[name='question']").focus();
             }
         });
-    }
-    else
-    {
+    } else   {
         $("td.edit a").remove();
     }
 
@@ -61,17 +70,13 @@ $(function() {
     });
     $(".answerText").dblclick(function() {
       $(this).after().html('<input class="text" id="newvalue" style="width:200px;" value="'+$(this).html()+'"><button id="savethisAnswer" onclick="saveAnswer(this,'+$(this).data("id")+');" class="btn btn-primary">X</button>');
-    });
-
-    
+    });   
 });
 
 function saveTitle(obj, val) {
   $('[data-id='+val+']').html($(obj).prev().val());
   $(obj).prev().remove();
   $(obj).remove();
-  
-  
 }  
 
 function saveAnswer(obj, val) {
@@ -81,26 +86,22 @@ function saveAnswer(obj, val) {
 }  
 
 
-function addNewAnswer()
-{
+function addNewAnswer() {
     $('<input type="text" name="answers[]" class="text" /><br/>').insertBefore("#answerSection button:first").focus();
     return false;
 }
 
-function removeLastAnswer()
-{
+function removeLastAnswer() {
     $('#answerSection input:last').next().remove();
     $('#answerSection input:last').remove();
 }
 
-function addNewQuestion()
-{
+function addNewQuestion() {
     var question = {};
     question['question'] = $("#newQuestionForm input[name='question']").val();
     question['type'] = $("#newQuestionForm select").val();
     question['answers'] = [];
-    $("#answerSection input[type='text']").each(function()
-    {
+    $("#answerSection input[type='text']").each(function()    {
         if ($.trim($(this).val()).length) {
             question['answers'].push($(this).val());
         }
@@ -109,21 +110,19 @@ function addNewQuestion()
     // Validate.
     err = [];
     if ($.trim(question.question) == '') {
-        err.push('Entrez une question, s.v.p.');
+        err.push(msgDisplay.onequest);
     }
     if (question.answers.length <= 1) {
-        err.push('Entrez au moins deux réponses, s.v.p.');
+      err.push(msgDisplay.two);
     } else if (question['type'] == 'three' && question.answers.length <= 3) {
-      err.push('Entrez au moins quatre réponses, s.v.p.');
+      err.push(msgDisplay.three);
     } else if (question['type'] == 'four' && question.answers.length <= 4) {
-      err.push('Entrez au moins cinq réponses, s.v.p.');
+      err.push(msgDisplay.four);
     } else if (question['type'] == 'five' && question.answers.length <= 5) {
-      err.push('Entrez au moins six réponses, s.v.p.');
+      err.push(msgDisplay.five);
     }  
-    
-    
-    if (err.length)
-    {
+        
+    if (err.length)    {
         alert(err.join("\n"));
         return;
     }
@@ -144,27 +143,24 @@ function addNewQuestion()
     return false;
 }
 
-function deleteQuestion(object)
-{
+function deleteQuestion(object) {
     $(object).closest("div.question").slideUp(300,function(){
         $(this).remove();
     });
 }
 
-function saveQuestionnaire(url, id)
-{
+function saveQuestionnaire(url, id) {
     $('#savethisAnswer').click();
     
     var questions = $("#questions div.question");
     var questiondata = [];
     if (questions.length < 1) {
-        alert("Entrez au moins une question, s.v.p..");
+        alert(msgDisplay.pleaseatleastonequestion);
         return;
     }
 
     // Iterate over the UI to get question and answer order.
-    questions.each(function()
-    {
+    questions.each(function() {
         // Reorder answers.
         var question = JSON.parse($(this).find("div.qobject").html());
         question.answers = [];
@@ -174,15 +170,14 @@ function saveQuestionnaire(url, id)
         questiondata.push(question);
     });
 
-    $("#savingIndicator").html("Sauvegarde...").slideDown(300);
+    $("#savingIndicator").html(msgDisplay.saving).slideDown(300);
 
     $.post(url,{'id' : id, 'action' : 'saveQuestionnaire', 'input' : JSON.stringify(questiondata)},function(data) {
-        for(i in data.questionnaire)
-        {
+        for(i in data.questionnaire) {
             o = data.questionnaire[i];
             questions.eq(parseInt(o.ordinal)).data("question",o);
         }
-        $("#savingIndicator").html("Sauvé!").slideUp(300); //DPL .wait(2000).slideUp(300);
+        $("#savingIndicator").html(msgDisplay.saved).slideUp(300); //DPL .wait(2000).slideUp(300);
     },'json')
 }
 
@@ -201,12 +196,20 @@ var views = {
 	</tr></table></div>'
 };
 
-var typesDisplay = {
-    'one'         : 'Sélectionnez un des éléments',
-    'any'         : 'Sélectionnez l\'un (ou aucun) des éléments suivants',
-    'atleastone'  : 'Sélectionnez au moins un des éléments suivants',
-    'two'         : 'Sélectionnez deux des éléments',
-    'three'       : 'Sélectionnez trois des éléments',
-    'four'        : 'Sélectionnez quatre des éléments',
-    'five'        : 'Sélectionnez cinq des éléments'
-};
+function buildstrings() {
+    typesDisplay.one        = str[0];
+    typesDisplay.any        = str[1];
+    typesDisplay.atleastone = str[2];
+    typesDisplay.two        = str[3];
+    typesDisplay.three      = str[4];
+    typesDisplay.four       = str[5];
+    typesDisplay.five       = str[6];
+    msgDisplay.two          = str[7];    
+    msgDisplay.three        = str[8];    
+    msgDisplay.four         = str[9];    
+    msgDisplay.five         = str[10];    
+    msgDisplay.onequest     = str[11];
+    msgDisplay.pleaseatleastonequestion = str[12];
+    msgDisplay.saving       = str[13];
+    msgDisplay.saved        = str[14];    
+}

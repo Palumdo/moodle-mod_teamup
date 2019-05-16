@@ -54,6 +54,7 @@ L\'idée est de formuler des questions à choix multiple avec d\'éventuelles re
 L\'outil distribue les étudiants de manière égale parmi un nombre spécifié de groupes. 
 Ce plugin est un fork du module Moodle <a href=\"https://moodle.org/plugins/mod_teambuilder\" target=\"_blank\"> Team Builder </a> dont notre module copie l\'interface. 
 L\'algorithme de répartition et ses options s\'inspirent ceux du projet Open Source <a href=\"https://www.groupeng.org/GroupENG\" target=\"_blank\"> GroupEng </a>. ';
+
 $string['name']                       = 'Nom';
 $string['noeditingafteropentime']     = 'Vous ne pouvez pas éditer le questionnaire d\'un Team up s\'il a déjà été ouvert.';
 $string['none']                       = 'aucun';
@@ -132,6 +133,10 @@ Nombre de groupes :<input id="nbteam" min="1" style="width:40px;height:21px;marg
 </ul>
 </p>
 ';
+
+
+
+
 $string['createteams']                = 'Créer les groupes';
 $string['save']                       = 'Sauver';
 $string['prettify']                   = 'Optimiser';
@@ -141,9 +146,7 @@ $string['analyzeclustercriterion']    = 'Le nombre d\'étudiants répondant à c
 $string['analyzeclusterwarning']      = '<br><span style="color:red;">Attention, il ne pourra pas avoir deux étudiants dans tous les groupes avec ces critères.</span>';
 $string['analyzeclustersuccess']      = '<br>Il  pourra y avoir deux étudiants dans tous les groupes avec ces critères.';
 $string['analyzeaggregatewarning']    = '<br><span style="color:{color};"> Critère {answer} : <b>{nbstudent}</b>=> Nombre de groupes probables : {nbgroup} composé de {nbstudentgroup} étudiants avec {reste} étudiants éparpillés.</span>';
-$string['analyzeaggregatewarningOK']    = '<br><span style="color:{color};"> Critère {answer}</td><td>: <b>{nbstudent}</b>=>Nombre de groupes probables : {nbgroup} composé de {nbstudentgroup} étudiants.</span>';
-//$string['analyzeaggregatewarning']    = '<tr style="color:{color};"><td> Critère {answer}</td><td>:<b>{nbstudent}</b>=></td><td>Nombre de groupes probables :{nbgroup}</td><td>&nbsp;composé de {nbstudentgroup} étudiants avec {reste} étudiants éparpillés</td></tr>';
-//$string['analyzeaggregatewarningOK']  = '<tr style="color:{color};"><td> Critère {answer}</td><td>:<b>{nbstudent}</b>=></td><td>Nombre de groupes probables :{nbgroup}</td><td>&nbsp;composé de {nbstudentgroup} étudiants</td></tr>';
+$string['analyzeaggregatewarningOK']  = '<br><span style="color:{color};"> Critère {answer}</td><td>: <b>{nbstudent}</b>=>Nombre de groupes probables : {nbgroup} composé de {nbstudentgroup} étudiants.</span>';
 $string['noanswer']                   = 'Cet étudiant n\'a pas répondu.';
 $string['analyzedistributesuccess']   = 'Pas de problème pour le distribuer dans <b>{nbteam}</b> groupes';
 $string['analyzedistributewarning']   = '<span style="color:red;">Attention problème pour distribuer dans <b>{nbteam}</b> groupes</span>';
@@ -194,7 +197,6 @@ $string['helpserie']                  = '<p>#
 $string['helpserie_help']             = 'Concept de série';
 $string['answersSubmitted']           = 'Vos réponses ont été envoyées.';
 
-
 $string['oneOption']                  = 'Sélectionnez <strong> un </strong> des éléments suivants:';
 $string['anyOption']                  = 'Sélectionnez l\'un (ou aucun) des éléments suivants:';
 $string['atleastoneOption']           = 'Sélectionnez <strong> au moins un </strong> des éléments suivants:';
@@ -227,3 +229,12 @@ $string['pleasenever']                = 'Veuillez NE JAMAIS actualiser cette pag
 $string['privacy:metadata:teamup_response']           = 'Informations sur les réponses de l\'utilisateur à une activité teamup donnée';
 $string['privacy:metadata:teamup_response:answerid']  = 'La réponse choisie par l\'utilisateur.';
 $string['privacy:metadata:teamup_response:userid']    = 'L\'utilisateur qui a répondu.';
+
+$string['pleasequestion']              = 'Entrez une question, s.v.p.';
+$string['pleaseatleastonequestion']    = 'Entrez au moins une question, s.v.p..';
+$string['jserror01']                   = 'Entrez au moins deux réponses, s.v.p.';
+$string['jserror02']                   = 'Entrez au moins quatre réponses, s.v.p.';
+$string['jserror03']                   = 'Entrez au moins cinq réponses, s.v.p.';
+$string['jserror04']                   = 'Entrez au moins six réponses, s.v.p.';
+$string['saving']                      = 'Sauvegarde...';
+$string['saved']                       = 'Sauvé!';
