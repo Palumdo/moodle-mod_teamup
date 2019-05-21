@@ -238,3 +238,4 @@ $string['jserror03']                   = 'Enter at least five answers, please';
 $string['jserror04']                   = 'Enter at least six answers, please';
 $string['saving']                      = 'Saving...';
 $string['saved']                       = 'Saved!';
+$string['exportexcel']                 = 'Download all answers in Excel';

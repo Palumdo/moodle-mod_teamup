@@ -238,3 +238,4 @@ $string['jserror03']                   = 'Entrez au moins cinq réponses, s.v.p.
 $string['jserror04']                   = 'Entrez au moins six réponses, s.v.p.';
 $string['saving']                      = 'Sauvegarde...';
 $string['saved']                       = 'Sauvé!';
+$string['exportexcel']                 = 'Téléchargez toutes les réponses en Excel';

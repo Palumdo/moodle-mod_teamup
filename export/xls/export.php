@@ -41,8 +41,19 @@ if ($id) {
 
 
 require_login($course, true, $cm);
-$reportname = "teamup_export";
+$ctxt = context_module::instance($cm->id);
 
+$mode = '';
+if (has_capability('mod/dynamo:create', $ctxt)) {
+    $mode = 'teacher';
+}
+
+if($mode == '') {
+  redirect(new moodle_url('/my'));
+  die();
+}  
+
+$reportname = "teamup_export";
 $workbook = new MoodleExcelWorkbook('-');
 
 $workbook->send($reportname);
@@ -67,9 +78,7 @@ $col++;
 $worksheet[0]->write(0, $col, get_string('answer'));
 $row = 1;
 
-$ctxt = context_module::instance($cm->id);
 $users = get_enrolled_users($ctxt);
-
 foreach($users as $user) {
     $grp = teamup_get_groups($user->id, $course->id);
     $asw = teamup_get_user_answers($cm->instance, $user->id);
