@@ -177,7 +177,7 @@ if (!empty($feedback)) {
   $imgico       = new moodle_url('/mod/teamup/css/help.png');
   $imgicoxls    = new moodle_url('/mod/teamup/css/excel.png');
   echo '<fieldset>
-          <legend class="myShow">'.get_string('groupName', 'mod_teamup').'&nbsp;<a alt="Export Excel" title="'.get_string('preview', 'mod_teamup').'" href="'.$url.'" target="_outside"><img src="'.$imgicoxls.'" width="24" /></a></legend>
+          <legend class="myShow">'.get_string('groupName', 'mod_teamup').'&nbsp;<a title="'.get_string('exportexcel', 'mod_teamup').'" href="'.$url.'" target="_outside"><img alt="'.get_string('exportexcel', 'mod_teamup').'" src="'.$imgicoxls.'" width="24" /></a></legend>
           <div>
            '.get_string('groupSchemaName', 'mod_teamup').'             
            <span class="helptooltip">
