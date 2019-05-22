@@ -44,7 +44,7 @@ require_login($course, true, $cm);
 $ctxt = context_module::instance($cm->id);
 
 $mode = '';
-if (has_capability('mod/dynamo:create', $ctxt)) {
+if (has_capability('mod/teamup:create', $ctxt)) {
     $mode = 'teacher';
 }
 
