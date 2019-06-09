@@ -148,7 +148,7 @@ $string['analyzeclustersuccess']      = '<br>There may be two students in all gr
 $string['analyzeaggregatewarning']    = '<br><span style="color:{color};"> Criterion {answer}: <b> {nbstudent} </b> => They\'ll have probably {nbgroup} groups of {nbstudentgroup} students with {reste} students spread</span>';
 $string['analyzeaggregatewarningOK']  = '<br><span style="color:{color};"> Criterion {answer}: <b> {nbstudent} </b> => They\'ll have probably {nbgroup} groups of {nbstudentgroup} students</span>';
 $string['noanswer']                   = 'This student has not responded.';
-$string['analyzedistributesuccess']   = 'No problem to distibute it in <b> {nbteam} </b> teams';
+$string['analyzedistributesuccess']   = 'No problem to distribute it in <b> {nbteam} </b> teams';
 $string['analyzedistributewarning']   = '<span style=\"color:red;\">Attention problem to distibute it in <b> {nbteam} </b> teams</span>';
 $string['analyzedistributecriterion'] = '<br> Criterion {answer} : <b>{nbstudent}</b>=> <b>{status}</b>';
 $string['analyzebalancewarning']      = '<span style=\"color:red;\">The result is not numeric, choose an appropriate question, please.</span>';
