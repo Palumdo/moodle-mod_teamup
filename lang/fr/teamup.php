@@ -51,8 +51,8 @@ L\'idée est de formuler des questions à choix multiple avec d\'éventuelles re
 * disperser les individus semblables
 * éviter les minorités
 * équilibrer le niveau (sur base d\'une réponse chiffrée).
-L\'outil distribue les étudiants de manière égale parmi un nombre spécifié de groupes. 
-Ce plugin est un fork du module Moodle <a href=\"https://moodle.org/plugins/mod_teambuilder\" target=\"_blank\"> Team Builder </a> dont notre module copie l\'interface. 
+L\'outil distribue les étudiants de manière égale parmi un nombre spécifié de groupes.
+Ce plugin est un fork du module Moodle <a href=\"https://moodle.org/plugins/mod_teambuilder\" target=\"_blank\"> Team Builder </a> dont notre module copie l\'interface.
 L\'algorithme de répartition et ses options s\'inspirent ceux du projet Open Source <a href=\"https://www.groupeng.org/GroupENG\" target=\"_blank\"> GroupEng </a>. ';
 
 $string['name']                       = 'Nom';
@@ -93,7 +93,7 @@ $string['replay']                     = 'Rejoue sans reset';
 $string['bidon']                      = 'bidon #';
 $string['presentation']               = '<h3>Présentation du module</h3>
 <p>
-L\'activité  Formation de groupes assitée (Team Up) permet de composer un questionnaire avec des questions à choix multiple avec possibilité de restrictions sur les réponses. 
+L\'activité  Formation de groupes assitée (Team Up) permet de composer un questionnaire avec des questions à choix multiple avec possibilité de restrictions sur les réponses.
 
 <p>
 Le premier onglet de l\'activité, <b>Questionnaire</b>, permet de créer les questions pour les étudiants.<br>
@@ -102,8 +102,8 @@ Le dernier onglet,<b>Prévisualiser</b>, permet la création des groupes par l\'
 </p>
 
 <p>
-La création des groupes se fait en deux étapes. La première étape est une simulation. 
-Pendant la simulation, il est possible de modifier les critères, les réordonner et de déplacer les étudiants manuellement d\'un groupe à l\'autre. 
+La création des groupes se fait en deux étapes. La première étape est une simulation.
+Pendant la simulation, il est possible de modifier les critères, les réordonner et de déplacer les étudiants manuellement d\'un groupe à l\'autre.
 Et l\'étape suivante est la création effective des groupes dans Moodle.<br>
 Il ne faut donc pas oublier d\'appuyer sur <button type=\"button\" class=\"creategroups\" style=\"font-size: 1.0em;\" id=\"\">Créer les groupes dans Moodle</button> pour finaliser la création.<br>
 </p>
@@ -128,7 +128,7 @@ Nombre de groupes :<input id="nbteam" min="1" style="width:40px;height:21px;marg
   <li>Le nombre de groupes détermine le nombre d\'étudiants approximatif par groupe ex: 123 étudiants dans 31 groupes donnent 4. Indiqué entre parenthèses à côté du nombre d\'étudiants.</li>
   <li>Prévisualiser : Ce bouton crée les groupes selon les critères dans la prévisualisation.</li>
   <li>Réinitialiser : Ce bouton remet tous les étudiants hors des groupes dans la partie <b>non affecté aux groupes</b></li>
-  <li>Optimiser : Ce bouton essaye d\'améliorer la répartition des groupes en fonction des critères. Le succès n\'est pas garanti mais vous pouvez répéter plusieurs fois l\'opération.</li>     
+  <li>Optimiser : Ce bouton essaye d\'améliorer la répartition des groupes en fonction des critères. Le succès n\'est pas garanti mais vous pouvez répéter plusieurs fois l\'opération.</li>
   <li>Egaliser : Force le nombre d\'étudiants par groupes  indépendamment des critères basés sur le nombre entre parenthèses. Parfois nécessaire après une optimisation.</li>
 </ul>
 </p>
@@ -185,7 +185,7 @@ $string['helpserie']                  = '<p>#
                                           Les séries sont des groupes d\'étudiants créer avec comme seul critère l\'ordre alphabétique.<br>
                                           Ces groupes sont préfixés par le terme "Série" ex:"Série 01"<br>
                                           L\'utilité des groupes séries est qu\'ils sont utilisés comme filtres sur la liste des étudiants.<br>
-                                          Par défaut, vous créez les groupes sur l\'ensemble des étudiants du cours.<br> 
+                                          Par défaut, vous créez les groupes sur l\'ensemble des étudiants du cours.<br>
                                           Les séries permettent de les créer sur un sous-groupe d\'étudiants particuliés.<br>
                                           C\'est utile pour de grosses classes, entre autres.<br>
                                           Il est possible de créer des séries sois-même indépendamment du bouton série.<br>

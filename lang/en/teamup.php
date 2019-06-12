@@ -37,7 +37,7 @@ $string['assignrandomly']             = 'Assign Randomly';
 $string['buildteams']                 = 'Groups Creation';
 $string['confirmgroupbuilding']       = 'Are you sure you want to create your groups now ?';
 $string['criterionquestion']          = 'At least one student who answered {question} :';
-$string['creategroups']               = 'Create Groups inside Moodle'; 
+$string['creategroups']               = 'Create Groups inside Moodle';
 $string['dontassigngrouptogrouping']  = 'Don\'t assign groups to a Grouping';
 $string['import']                     = 'Import';
 $string['importquestionsfrom']        = 'Import questions from';
@@ -48,8 +48,8 @@ $string['modulenameplural']           = 'TeamUp';
 $string['modulename_help']            = 'TeamUp is a tool to assign students to Moodle groups based on their answers to a series of questions that you specify.
 The idea is to write some multiple choice questions eventually with restrictions, and to use the students answers to compose groups with 4 approaches :
 * Aggregate : Group students with some attribute together in the same groups
-* Distribute : Spread students with some attribute across all groups so that each group has about the same number of them 
-* Cluster : ensure that students with some attribute are not isolated in a group 
+* Distribute : Spread students with some attribute across all groups so that each group has about the same number of them
+* Cluster : ensure that students with some attribute are not isolated in a group
 * Balance : Ensure equal strength of groups based on some numeric score
 The algorithm fills the groups so that the have all the same number of members.
 
@@ -91,11 +91,11 @@ $string['cluster']                    = 'Cluster';
 $string['balance']                    = 'Balance';
 $string['replay']                     = 'Replay without reset';
 $string['bidon']                      = 'fake';
-$string['presentation']               = '<h3> Module overview </h3> 
+$string['presentation']               = '<h3> Module overview </h3>
 <p>
 The purpose of the Team Up module is to allow the creation of groups, based on a multiple answer questions survey, with possible restrictions.
 
-<p> 
+<p>
 The first tab, <b>Questionnaire</b>, enables you to create the questions for students.<br>
 <b>Preview questions</b>, the second tab, presents the questionnaire for students to answer. <br>
 The last tab, <b>Groups creation</b>, enables you to launch the groups creation.
@@ -122,7 +122,7 @@ There are four basic operators to create the groups. <br>
 
 <p>
 When you preview a group distribution, you may click on a student block to see its informations and answers in a tooltip. <br>
-If one student does not have to enter in the group distribution, you may click on the X in regard of its name to remove him from the group preview. 
+If one student does not have to enter in the group distribution, you may click on the X in regard of its name to remove him from the group preview.
 </p>
 
 <u>The action bar :</u><br>
@@ -132,7 +132,7 @@ Number of teams :<input id="nbteam" min="1" style="width:40px;height:21px;margin
   <li> The number of teams fixes the number of students in each group. For example, 123 students in 31 groupes makes 4 individuals in groups. </li>
   <li>Preview : This button launches the group creation with the selected criterias. </li>
   <li>Reset : This button empties all groups and sets students in the part <b> non affected to groups</b>.</li>
-  <li>Optimize : This button makes some switches in students distribution to improve the criterias. Succes is not guaranteed but you may repeat optimization several times.</li>     
+  <li>Optimize : This button makes some switches in students distribution to improve the criterias. Succes is not guaranteed but you may repeat optimization several times.</li>
   <li>Equalize : Force to equalize the number of student in each groups. Sometimes necessary after optimization.</li>
 </ul>
 </p>
@@ -143,7 +143,7 @@ $string['prettify']                   = 'Optimize';
 $string['abc']                        = 'Serie #';
 $string['groupcreationsuccess']       = 'The groups were created with success.';
 $string['analyzeclustercriterion']    = 'The number of students meeting these criteria is <b> {nbstudent} </b> distributed in <b> {nbteam} </b> teams';
-$string['analyzeclusterwarning']      = '<br><span style="color:red;">Attention, he can not have two students in all groups with these criteria.</span>';
+$string['analyzeclusterwarning']      = '<br><span style="color:red;">Attention, it can not have two students in all groups with these criteria.</span>';
 $string['analyzeclustersuccess']      = '<br>There may be two students in all groups with these criteria.';
 $string['analyzeaggregatewarning']    = '<br><span style="color:{color};"> Criterion {answer}: <b> {nbstudent} </b> => They\'ll have probably {nbgroup} groups of {nbstudentgroup} students with {reste} students spread</span>';
 $string['analyzeaggregatewarningOK']  = '<br><span style="color:{color};"> Criterion {answer}: <b> {nbstudent} </b> => They\'ll have probably {nbgroup} groups of {nbstudentgroup} students</span>';
@@ -194,7 +194,7 @@ $string['helpserie']                  = '<p>
                                           Once the series is created, the serial button disappears. To make it reappear if necessary, you must delete all the series groups. <br>
                                           But, it\'s still possible to create them by prefixing the group name by Series. <br>
                                         </p>';
-$string['helpserie_help']             = 'Series Concep';      
+$string['helpserie_help']             = 'Series Concep';
 $string['answersSubmitted']           = 'Your answers were submitted.';
 
 $string['oneOption']                  = 'Select <strong>one</strong> of the following:';

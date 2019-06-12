@@ -22,11 +22,10 @@
  * @author     UNSW
  * @author     Morgan Harris
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @modified by Dominique Palumbo (UCLouvain)
- * @Modifications 
+ * Modified by Dominique Palumbo (UCLouvain)
+ * Modifications
     teambuilder was replaced by teamup in the file (same structure)
-    add of 
-      function teamup_get_questions($id, $userid = null) 
+    add of function teamup_get_questions($id, $userid = null)
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -230,7 +229,7 @@ function teamup_supports($feature) {
     }
 }
 /**
- * Get groups for a particular course and particular student 
+ * Get groups for a particular course and particular student
  *
  * @author Dominique Palumbo (Added by UCLouvain)
  * @param int $usrid (user id), int $courseid (course id)
@@ -238,25 +237,26 @@ function teamup_supports($feature) {
  */
 function teamup_get_groups($usrid, $courseid) {
     global $DB;
-    
-    $sql = "SELECT distinct name 
+
+    $sql = "SELECT distinct name
               FROM  mdl_user t1
-              LEFT JOIN (SELECT ta.* FROM mdl_groups_members ta, mdl_groups tb WHERE tb.id = ta.groupid AND tb.courseid = :param1) t2 ON t2.userid = t1.id 
-              LEFT JOIN (SELECT * FROM mdl_groups WHERE courseid = :param2)  t3 ON t3.id = t2.groupid 
+              LEFT JOIN (SELECT ta.* FROM mdl_groups_members ta, mdl_groups tb WHERE tb.id = ta.groupid AND tb.courseid = :param1) t2 
+                    ON t2.userid = t1.id
+              LEFT JOIN (SELECT * FROM mdl_groups WHERE courseid = :param2)  t3 ON t3.id = t2.groupid
             WHERE t1.id = :param3
             ORDER BY name";
 
     $params = array('param1' => $courseid, 'param2' => $courseid, 'param3' => $usrid);
     $groups = $DB->get_records_sql($sql, $params);
-    
+
     $aret = array_keys($groups);
-    
+
     $ret = '';
-    for($i=0;$i<count($aret);$i++) {
-      $ret = $ret.','.$aret[$i];
-    }    
-   
-    return ltrim($ret,',');
+    for($i=0; $i<count($aret); $i++) {
+        $ret = $ret.','.$aret[$i];
+    }
+
+    return ltrim($ret, ',');
 } 
 
 /**
@@ -268,11 +268,11 @@ function teamup_get_groups($usrid, $courseid) {
  */
 function teamup_get_user_answers($id, $usrid) {
     global $DB;
-    
+
     $sql = "SELECT t2.answer
               FROM {teamup}_response t1
                   ,{teamup}_answer   t2
-             WHERE t1.userid = :userid 
+             WHERE t1.userid = :userid
                AND t1.answerid IN (SELECT id FROM {teamup_answer}
                                     WHERE question IN (SELECT id FROM {teamup_question}
                                                         WHERE builder = :builder
@@ -282,13 +282,12 @@ function teamup_get_user_answers($id, $usrid) {
            ";
 
     $params = array('userid' => $usrid, 'builder' => $id);
-    $rslt =  array_keys($DB->get_records_sql($sql, $params));    
-    
-    $ret = '';
-    for($i=0;$i<count($rslt);$i++) {
-      $ret = $ret.','.$rslt[$i];
-    }    
-   
-    return ltrim($ret,',');
-} 
+    $rslt =  array_keys($DB->get_records_sql($sql, $params));
 
+    $ret = '';
+    for($i=0; $i<count($rslt); $i++) {
+        $ret = $ret.','.$rslt[$i];
+    }
+
+    return ltrim($ret, ',');
+}

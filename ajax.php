@@ -14,6 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+/**
+ * @package    mod_teamup fork of mod_teambuilder
+ * @copyright  UNSW
+ * @author     Adam Olley
+ * @package fork   mod_teamup
+ * @author of modification  Palumbo Dominique (UCLouvain)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
 require_once(dirname(__FILE__).'/../../config.php');
 require_once(dirname(__FILE__).'/lib.php');
 

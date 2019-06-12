@@ -18,13 +18,13 @@
 // * @copyright  UNSW
 // * @author     UNSW
 // * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
-// * @modified   Dominique Palumbo (UCLouvain)
+// * modified   Dominique Palumbo (UCLouvain).
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version    = 2019051000;
+$plugin->version    = 2019061100;
 $plugin->requires   = 2015051100;
 $plugin->component  = 'mod_teamup';
 $plugin->maturity   = MATURITY_STABLE;
 $plugin->cron       = 0;
-$plugin->release    = '1.0.0.1';
+$plugin->release    = '1.0.0.2';

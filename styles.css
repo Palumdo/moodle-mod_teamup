@@ -1,451 +1,450 @@
 .path-mod-teamup h2 {
-  font-size                   : 18px !important;
+    font-size : 18px !important;
 }
 .mod-teamup th {
-  text-align                  : left;
-  vertical-align              : text-bottom;
-  padding-right               : 10px;
+    text-align : left;
+    vertical-align : text-bottom;
+    padding-right : 10px;
 }
 
 .mod-teamup form.addNewCriterion input.text,
 .mod-teamup form.addNewCriterion select {
-  width                       : 200px;
+    width : 200px;
 }
 
 .mod-teamup .description {
-  padding                     : 10px;
-  border                      : 1px solid black;
-  margin                      : 15px 10px;
+    padding : 10px;
+    border : 1px solid black;
+    margin : 15px 10px;
 }
 
 .path-mod-teamup #newQuestionForm {
-  background-color            : #F9F9F9;
-  border                      : 1px solid #999;
-  padding                     : 5px;
-  margin                      : auto;
-  display                     : inline-block;
-  text-align                  : left;
+    background-color : #F9F9F9;
+    border : 1px solid #999;
+    padding : 5px;
+    margin : auto;
+    display : inline-block;
+    text-align : left;
 }
 
 .path-mod-teamup .answers ul li {
-  list-style                  : none;
+    list-style : none;
 }
 
 .path-mod-teamup .question {
-  border                      : 1px solid #CCC;
-  padding                     : 10px;
-  margin                      : 10px;
-  background-color            : #FFF;
+    border : 1px solid #CCC;
+    padding : 10px;
+    margin : 10px;
+    background-color : #FFF;
 }
 
 .path-mod-teamup .question table {
-  border-collapse             : collapse;
-  width                       : 100%;
+    border-collapse : collapse;
+    width : 100%;
 }
 
 .path-mod-teamup .question ul {
-  margin                      : 0px;
-  margin-left                 : 2em;
+    margin : 0px;
+    margin-left : 2em;
 }
 
 .path-mod-teamup .question .handle {
-  background-image            : url('../../mod/teamup/css/handle.png');
-  background-position         : center center;
-  width                       : 23px;
-  padding                     : 3px;
-  background-repeat           : no-repeat;
+    background-image : url('../../mod/teamup/css/handle.png');
+    background-position : center center;
+    width : 23px;
+    padding : 3px;
+    background-repeat : no-repeat;
 }
 
 .path-mod-teamup .question .edit {
-  text-align                  : right;
+    text-align : right;
 }
 
 .path-mod-teamup .question .edit a {
-  cursor                      : pointer;
+    cursor : pointer;
 }
 
 .path-mod-teamup .question .type {
-  font-size                   : 0.9em;
-  color                       : #999;
+    font-size : 0.9em;
+    color : #999;
 }
 
 .path-mod-teamup .question .questionText {
-  font-weight                 : bold;
-  font-size                   : 1.1em;
+    font-weight : bold;
+    font-size : 1.1em;
 }
 
 .path-mod-teamup #savingIndicator {
-  color                       : #F00;
+    color : #F00;
 }
 
 .path-mod-teamup .question .response {
-  display                     : inline-block;
-  margin-right                : 5px;
-  margin-top                  : 2px;
-  margin-bottom               : 2px;
+    display : inline-block;
+    margin-right : 5px;
+    margin-top : 2px;
+    margin-bottom : 2px;
 }
 
 .path-mod-teamup .ui-state-error .type {
-  color                       : #FC0;
-  font-weight                 : bold;
+    color : #FC0;
+    font-weight : bold;
 }
 
 .path-mod-teamup .ui-state-error .type strong {
-  text-decoration             : underline;
+    text-decoration : underline;
 }
 
 /* Build Teams page */
-
 .path-mod-teamup #unassigned {
-  border                      : 1px solid #CCC;
-  background-color            : #F9F9F9;
-  margin                      : 2px;
-  padding                     : 5px;
-  position                    : relative;
+    border : 1px solid #CCC;
+    background-color : #F9F9F9;
+    margin : 2px;
+    padding : 5px;
+    position : relative;
 }
 
 .path-mod-teamup #unassigned h2 {
-  margin                      : 2px 2px 2px 25px;
+    margin : 2px 2px 2px 25px;
 }
 
 .path-mod-teamup #unassigned button {
-  position                    : absolute;
-  right                       : 5px;
-  top                         : 5px;
+    osition : absolute;
+    right : 5px;
+    top : 5px;
 }
 
 .path-mod-teamup .answered {
-  color                       : #373374 !important;
+    color : #373374 !important;
 }
 
 .path-mod-teamup .unanswered {
-  color                       : red !important;
+    color : red !important;
 }
 
 .path-mod-teamup .student {
-  display                     : inline-block;
-  padding                     : 5px;
-  margin                      : 2px;
-  cursor                      : default;
+    display : inline-block;
+    padding : 5px;
+    margin : 2px;
+    cursor : default;
 }
 
 .path-mod-teamup .team {
-  margin                      : 2px;
-  padding                     : 5px;
-  border                      : 1px solid #CCC;
-  border-radius               : 5px;
-  background-color            : #F9F9F9;
-  display                     : inline-block;
-  vertical-align              : top;
+    margin : 2px;
+    padding : 5px;
+    border : 1px solid #CCC;
+    border-radius : 5px;
+    background-color : #F9F9F9;
+    display : inline-block;
+    vertical-align : top;
 }
 
 .path-mod-teamup .team h2 {
-  margin                      : 2px;
+    margin : 2px;
 }
 
 .path-mod-teamup .sortable {
-  min-height                  : 20px;
+    min-height : 20px;
 }
 
 .path-mod-teamup .criterionWrapper {
-  text-align                  : center;
-  margin                      : 3px 10px;
-  display                     : none;
+    text-align : center;
+    margin : 3px 10px;
+    display : none;
 }
 
 .path-mod-teamup .criterion {
-  display                     : inline-block;
-  border                      : 1px solid #CCC;
-  margin                      : auto;
-  width                       : 800px;
-  padding                     : 5px;
-  padding-bottom              : 16px;
-  position                    : relative;
-  background-color            : white;
-  cursor                      : move;
+    display : inline-block;
+    border : 1px solid #CCC;
+    margin : auto;
+    width : 800px;
+    padding : 5px;
+    padding-bottom : 16px;
+    position : relative;
+    background-color : white;
+    cursor : move;
 }
 
 .path-mod-teamup .criterionDelete {
-  display                     : none;
-  position                    : absolute;
-  right                       : -10px;
-  top                         : -10px;
-  background-image            : url('../../mod/teamup/css/close.png');
-  background-repeat           : no-repeat;
-  background-attachment       : right top;
-  width                       : 24px;
-  height                      : 24px;
-  cursor                      : pointer;
+    display : none;
+    position : absolute;
+    right : -10px;
+    top : -10px;
+    background-image : url('../../mod/teamup/css/close.png');
+    background-repeat : no-repeat;
+    background-attachment : right top;
+    width : 24px;
+    height : 24px;
+    cursor : pointer;
 }
 
 .path-mod-teamup .criterion ul {
-  text-align                  : left;
-  list-style-type             : none;
-  padding                     : 0px;
-  margin                      : 0px 10px 5px;
+    text-align : left;
+    list-style-type : none;
+    padding : 0px;
+    margin : 0px 10px 5px;
 }
 
 .path-mod-teamup .subcriterionWrapper {
-  position                    : relative;
+    position : relative;
 }
 
 .path-mod-teamup .qreport {
-  position                    : relative;
-  border-radius               : 7px;
-  background-color            : #d5eaf2;
-  padding                     : 5px;
-  margin                      : 15px;
+    position : relative;
+    border-radius : 7px;
+    background-color : #d5eaf2;
+    padding : 5px;
+    margin : 15px;
 }
 
-
 .path-mod-teamup .operator {
-  color                       : #000;
-  font-weight                 : normal;
-  font-size                   : 14px;
-  height                      : 40px;
-  margin                      : 0;
-  margin-top                  : 2px;
-  text-align                  : center;
-  background-color            : #c9d9db;
-  position                    : relative;
-  top                         : -6px;
-  left                        : -3px;
+    color : #000;
+    font-weight : normal;
+    font-size : 14px;
+    height : 40px;
+    margin : 0;
+    margin-top : 2px;
+    text-align : center;
+    background-color : #c9d9db;
+    position : relative;
+    top : -6px;
+    left : -3px;
 }
 
 
 .path-mod-teamup .selected {
-  color                       : #008000;
+    color : #008000;
 }
 
 .path-mod-teamup #createGroupsForm {
-  border                      : 1px solid #000;
-  padding                     : 5px;
-  background-color            : #d5eaf2;
-  width                       : 50%;
-  margin                      : 5px auto;
+    border : 1px solid #000;
+    padding : 5px;
+    background-color : #d5eaf2;
+    width : 50%;
+    margin : 5px auto;
 }
 
 .path-mod-teamup #createGroupsForm p {
-  margin                      : 2px;
-  font-size                   : 1.1em;
-  font-weight                 : bold;
+    margin : 2px;
+    font-size : 1.1em;
+    font-weight : bold;
 }
 
 .path-mod-teamup #createGroupsForm button {
-  width                       : 85px;
-  font-size                   : 1em;
+    width : 85px;
+    font-size : 1em;
 }
 
 .path-mod-teamup .runningCounter {
-  position                    : absolute;
-  right                       : 5px;
-  bottom                      : 5px;
-  color                       : #AAA;
-  font-weight                 : bold;
-  font-size                   : 1.5em;
+    position : absolute;
+    right : 5px;
+    bottom : 5px;
+    color : #AAA;
+    font-weight : bold;
+    font-size : 1.5em;
 }
 
 .path-mod-teamup .studentResponse {
-  position                    : absolute;
-  background-image            : url('../../mod/teamup/css/b75.png');
-  border                      : 1px solid white;
-  padding                     : 10px;
-  color                       : #FFF !important;
+    position : absolute;
+    background-image : url('../../mod/teamup/css/b75.png');
+    border : 1px solid white;
+    padding : 10px;
+    color : #FFF !important;
 }
 
 .path-mod-teamup .studentResponse table {
-  border-collapse             : collapse;
+    border-collapse : collapse;
 }
 
 .path-mod-teamup .studentResponse table td, .studentResponse table th {
-  border-top                  : 1px solid white;
-  border-bottom               : 1px solid white;
-  color                       : #FFF !important;
+    border-top : 1px solid white;
+    border-bottom : 1px solid white;
+    color : #FFF !important;
 }
 
 .path-mod-teamup .studentResponse table th {
-  vertical-align              : middle;
-  color                       : #FFF !important;
+    vertical-align : middle;
+    color : #FFF !important;
 }
 
 .path-mod-teamup .add_sub {
-  position                    : absolute;
-  left                        : 0px;
-  bottom                      : 0px;
-  width                       : 16px;
-  height                      : 16px;
-  padding                     : 5px;
+    position : absolute;
+    left : 0px;
+    bottom : 0px;
+    width : 16px;
+    height : 16px;
+    padding : 5px;
 }
 
 /* Stepper */
 
 .path-mod-teamup .stepper > span {
-  border                      : 1px solid #BBB;
-  background-color            : #EEE;
-  width                       : 17px;
+    border : 1px solid #BBB;
+    background-color : #EEE;
+    width : 17px;
 }
 
 .path-mod-teamup .stepper > span > span {
-  border-width                : 0px 1px;
-  border-color                : #CCB;
-  border-style                : solid;
-  padding                     : 0px 5px;
-  background-color            : #FAFAEE;
+    border-width : 0px 1px;
+    border-color : #CCB;
+    border-style : solid;
+    padding : 0px 5px;
+    background-color : #FAFAEE;
 }
 
 .path-mod-teamup .ui-stepper-up {
-  background-image            : url('../../mod/teamup/css/up.png');
-  background-color            : #EEE;
-  background-position         : center center;
-  background-repeat           : no-repeat;
-  width                       : 17px;
-  height                      : 8px;
-  cursor                      : pointer;
-  display                     : inline-block;
+    background-image : url('../../mod/teamup/css/up.png');
+    background-color : #EEE;
+    background-position : center center;
+    background-repeat : no-repeat;
+    width : 17px;
+    height : 8px;
+    cursor : pointer;
+    display : inline-block;
 }
 
 .path-mod-teamup .ui-stepper-down {
-  background-image            : url('../../mod/teamup/css/down.png');
-  background-position         : center center;
-  background-repeat           : no-repeat;
-  width                       : 17px;
-  height                      : 8px;
-  cursor                      : pointer;
-  display                     : inline-block;
+    background-image : url('../../mod/teamup/css/down.png');
+    background-position : center center;
+    background-repeat : no-repeat;
+    width : 17px;
+    height : 8px;
+    cursor : pointer;
+    display : inline-block;
 }
 
 .path-mod-teamup .centered {
-  text-align                  : center;
+    text-align : center;
 }
 
 .path-mod-teamup .padded {
-  margin                      : 10px;
+    margin : 10px;
 }
 
 .path-mod-teamup .creategroups {
-  font-size                   : 1.5em;
-  font-weight                 : bold;
-  height                      : 80px;
+    font-size : 1.5em;
+    font-weight : bold;
+    height : 80px;
 }
 
 @media (min-width:768px) {
-  .path-mod-teamup .inline-block-row {
-    word-spacing              : -1em;
-    letter-spacing            : -1em;
-    overflow                  : hidden;
-  }
-  .path-mod-teamup .inline-block-row .col-sm-4 {
-    word-spacing              : normal;
-    vertical-align            : top;
-    letter-spacing            : normal;
-    display                   : inline-block;
-    float                     : none;
-  }
+    .path-mod-teamup .inline-block-row {
+        word-spacing : -1em;
+        letter-spacing : -1em;
+        overflow : hidden;
+    }
+    .path-mod-teamup .inline-block-row .col-sm-4 {
+        word-spacing : normal;
+        vertical-align : top;
+        letter-spacing : normal;
+        display : inline-block;
+        float : none;
+    }
 }
+
 @media (min-width:992px) {
     .path-mod-teamup .inline-block-row .col-md-3 {
-    float                     : none;
-  }
+        float : none;
+    }
 }
 
 .path-mod-teamup .reload { 
-  font-family                 : Lucida Sans Unicode;
-  background-color            : #EEE;
-  background-position         : center center;
-  background-repeat           : no-repeat;
-  height                      : 18px;
-  cursor                      : pointer;
-  display                     : inline-block;
-  padding-top                 : 0px;
-  font-size                   : 12px;
+    font-family : Lucida Sans Unicode;
+    background-color : #EEE;
+    background-position : center center;
+    background-repeat : no-repeat;
+    height : 18px;
+    cursor : pointer;
+    display : inline-block;
+    padding-top : 0px;
+    font-size : 12px;
 }
 
 .path-mod-teamup .studentui {
-  background-color            : #fff;
-  border-radius               : 5px;
-  border                      : 1px solid #BBB;
-  font-size                   : 12px;
+    background-color : #FFF;
+    border-radius : 5px;
+    border : 1px solid #BBB;
+    font-size : 12px;
 }  
 
 .path-mod-teamup .border-rounded-right {
-  border-top-left-radius      : 5px;
-  border-bottom-left-radius   : .25rem;
-  border                      : 1px solid #007bff;
-  margin                      : 2px;
-  padding                     : 2px;
+    border-top-left-radius : 5px;
+    border-bottom-left-radius : .25rem;
+    border : 1px solid #007BFF;
+    margin : 2px;
+    padding : 2px;
 }
 
 table.mod-teamup-table {
-  border-collapse             : separate;
-  border-spacing              : 0 5px;
+    border-collapse : separate;
+    border-spacing : 0 5px;
 }
 
 table.mod-teamup-table thead th {
-  background-color            : #006DCC;
-  color: white;
+    background-color : #006DCC;
+    color: white;
 }
 
 table.mod-teamup-table tbody td {
-  background-color            : #EEEEEE;
+    background-color : #EEEEEE;
 }
 
 table.mod-teamup-table tr td:first-child,
 table.mod-teamup-tabletr th:first-child {
-  border-top-left-radius      : 6px;
-  border-bottom-left-radius   : 6px;
+    border-top-left-radius : 6px;
+    border-bottom-left-radius : 6px;
 }
 
 table.mod-teamup-table tr td:last-child,
 table.mod-teamup-table tr th:last-child {
-  border-top-right-radius     : 6px;
-  border-bottom-right-radius  : 6px;
+    border-top-right-radius : 6px;
+    border-bottom-right-radius : 6px;
 }
 
 .path-mod-teamup .path-mod-teamup .mylittlebox {
-  font-size                  : 12px; 
+    font-size : 12px; 
 } 
 
 .path-mod-teamup legend {
-  cursor                    : pointer;
+    cursor : pointer;
 }
 
-.path-mod-teamup .myHide:before{
-  content                   : '__';
-  background                : url("css/collapsed.png") left center no-repeat;
-  width                     : 16px;
-  height                    : 16px;
-  color                     : rgba(255, 255, 255, 1);
+.path-mod-teamup .myHide:before {
+    content : '__';
+    background : url("css/collapsed.png") left center no-repeat;
+    width : 16px;
+    height : 16px;
+    color : rgba(255, 255, 255, 1);
 }
 
-.path-mod-teamup .myShow:before{
-  content                   : '__';
- 	background                : url("css/expanded.png") left center no-repeat;
-  width                     : 16px;
-  height                    : 16px;
-  color                     : rgba(255, 255, 255, 1);
+.path-mod-teamup .myShow:before {
+    content : '__';
+ 	background : url("css/expanded.png") left center no-repeat;
+    width : 16px;
+    height : 16px;
+    color : rgba(255, 255, 255, 1);
 }
 
 .path-mod-teamup #nbteam:disabled {
-    background              : #ffffff;
+    background : #FFFfff;
 }
 
 .path-mod-teamup .studentdel {
-    float                   : right;
-    cursor                  : pointer;
-    color                   : black;
-    font-size               : 12px;
-    font-weight             : bold;
-    margin-top              : -5px;
+    float : right;
+    cursor : pointer;
+    color : black;
+    font-size : 12px;
+    font-weight : bold;
+    margin-top : -5px;
 }   
 
 .path-mod-teamup .studentdel:hover {
-    font-size               : 18px;
+    font-size : 18px;
 }   
 
 .path-mod-teamup .modal-title {
-    width                   : 100%;
-    text-align              : center;
-    color                   : white;
-    background              : #666;
-    font-weight             : bold;
+    width : 100%;
+    text-align : center;
+    color : white;
+    background : #666;
+    font-weight : bold;
 }

@@ -41,8 +41,8 @@ defined('MOODLE_INTERNAL') || die();
  * @copyright  2014 NetSpot Pty Ltd
  * @author     Adam Olley <adam.olley@netspot.com.au>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @modified by  Palumbo Dominique (UCLouvain)
- * @Modifications 
+ * Modified by  Palumbo Dominique (UCLouvain)
+ * Modifications
     teambuilder was replaced by teamup in the file (same structure)
  */
 class course_module_viewed extends \core\event\course_module_viewed {

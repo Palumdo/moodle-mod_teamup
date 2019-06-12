@@ -20,8 +20,8 @@
  * @copyright  UNSW
  * @author     UNSW
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @modified by Dominique Palumbo (UCLouvain)
- * @modification
+ * Modified by Dominique Palumbo (UCLouvain)
+ * Modification
     the string teambuilder was replaced by teampup (same structure)
     The main difference is the management of the new types (two, three, four, five)
     and also the type in multi-language
@@ -38,11 +38,11 @@ $PAGE->requires->css('/mod/teamup/styles.css');
 
 
 $id           = optional_param('id', 0, PARAM_INT); // The course_module ID, or...
-$a            = optional_param('a', 0, PARAM_INT);  // teamup instance ID.
+$a            = optional_param('a', 0, PARAM_INT); // Teamup instance ID.
 $preview      = optional_param('preview', 0, PARAM_INT);
 $action       = optional_param('action', null, PARAM_TEXT);
 
-// Modification by UCLouvain
+// Modification by UCLouvain.
 $displaytypes = [
   "one"         => get_string('oneOption',        'mod_teamup'),
   "any"         => get_string('anyOption',        'mod_teamup'),
@@ -52,7 +52,7 @@ $displaytypes = [
   "four"        => get_string('fourOption',       'mod_teamup'),
   "five"        => get_string('fiveOption',       'mod_teamup'),
 ];
-// END UCLouvain modification
+// END UCLouvain modification.
 
 if ($id) {
     list ($course, $cm) = get_course_and_cm_from_cmid($id, 'teamup');
@@ -175,30 +175,29 @@ if (($mode == "student") && $teamup->groupid && !groups_is_member($teamup->group
         echo $output->navigation_tabs($id, "questionnaire");
 
         if ($teamup->open < time()) {
-          echo '<div class="ui-widget" style="text-align:center;">';
-          $style = "display:inline-block; padding-left:10px; padding-right:10px;";
-          echo '<div style="'.$style.'" class="ui-state-highlight ui-corner-all">';
-          echo '<p>'.get_string('noeditingafteropentime', 'mod_teamup').'</p>';
-          echo '</div></div>';
-          echo '<script type="text/javascript">var interaction_disabled = true;</script>';
+            echo '<div class="ui-widget" style="text-align:center;">';
+            $style = "display:inline-block; padding-left:10px; padding-right:10px;";
+            echo '<div style="'.$style.'" class="ui-state-highlight ui-corner-all">';
+            echo '<p>'.get_string('noeditingafteropentime', 'mod_teamup').'</p>';
+            echo '</div></div>';
+            echo '<script type="text/javascript">var interaction_disabled = true;</script>';
         }
 
-        //echo ('<b>'.get_string('pleasenever', 'mod_teamup').'</b>');
         // Set up initial questions.
         $questions = teamup_get_questions($teamup->id);
-        echo '<script type="text/javascript"> var init_questions = ' . json_encode($questions) . '</script>';
+        echo '<script type="text/javascript"> var initQuestions = ' . json_encode($questions) . '</script>';
 
         echo '<div id="questions">';
-        $strDelete = get_string('delete');
+        $strdelete = get_string('delete');
         foreach ($questions as $q) {
-          $strType = $displaytypes[$q->type];
-          echo <<<HTML
+            $strtype = $displaytypes[$q->type];
+            echo <<<HTML
 <div class="question" id="question-{$q->id}"><table class="mod-teamup-table">
 <tr>
     <td rowspan="2" class="handle">&nbsp;</td>
-    <td><span class="questionText" data-id="$q->id">$q->question</span> <span class="type">$strType</span></td>
+    <td><span class="questionText" data-id="$q->id">$q->question</span> <span class="type">$strtype</span></td>
     <td class="edit">
-        <a onclick="deleteQuestion(this)">$strDelete</a>
+        <a onclick="deleteQuestion(this)">$strdelete</a>
         <div class="qobject" style="display:none;"/></div>
     </td>
 </tr>
@@ -218,7 +217,8 @@ HTML;
             // New question form.
             $onclick = "saveQuestionnaire('{$CFG->wwwroot}/mod/teamup/ajax.php', {$id})";
             echo '<div style="display:none;text-align:center;" id="savingIndicator"></div>';
-            echo '<div style="text-align:center;"><button class="btn btn-default" type="button" id="saveQuestionnaire" onclick="'.$onclick.'">';
+            echo '<div style="text-align:center;"><button class="btn btn-default" type="button" id="saveQuestionnaire" onclick="'
+                    .$onclick.'">';
             echo get_string('savequestionnaire', 'mod_teamup').'</button></div>';
 
             if (empty($questions)) {
@@ -228,11 +228,14 @@ HTML;
                 echo '<div style="text-align:center;margin:10px;font-weight:bold;" id="importContainer">';
                 echo $strimportfrom.': <select id="importer">';
                 foreach ($otherbuilders as $o) {
-                    if($teamup->id != $o->id) echo "<option value=\"$o->id\">$o->name</option>";
+                    if($teamup->id != $o->id) {
+                        echo "<option value=\"$o->id\">$o->name</option>";
+                    }
                 }
                 $strimport = get_string('import', 'mod_teamup');
                 $stror = get_string('or', 'mod_teamup');
-                echo '</select><button class="btn btn-default" type="button" id="importButton">'.$strimport.'</button><br/>'.$stror.'</div>';
+                echo '</select><button class="btn btn-default" type="button" id="importButton">'.$strimport.'</button><br/>'.$stror
+                        .'</div>';
 
             }
             // Modification by UCLouvain
@@ -272,14 +275,15 @@ HTML;
         </tr>
         <tr>
             <th scope="row">$stranswers</th>
-            <td id="answerSection"><input type="text" name="answers[]" class="text" /><br/>
+            <td id="answerSection"><input type="text" name="answers[]" class="text" maxlength="250" /><br/>
                 <button class="btn btn-default" onclick="addNewAnswer();" type="button">+</button>
                 <button class="btn btn-default" onclick="removeLastAnswer();" type="button">-</button>
             </td>
         </tr>
         <tr>
             <td></td>
-            <td><button class="btn btn-default" id="addNewQuestion" type="button" onclick="addNewQuestion();">$straddnewquestion</button></td>
+            <td><button class="btn btn-default" id="addNewQuestion" type="button" onclick="addNewQuestion();">$straddnewquestion
+                </button></td>
         </tr>
     </table>
 </div>
@@ -337,12 +341,21 @@ HTML;
                     }
                     // Modification by UCLouvain
                     $class = $q->type == "atleastone" ? "atleastone" : "";
-                    if($q->type == "two")   $class = "two";
-                    if($q->type == "three") $class = "three";
-                    if($q->type == "four")  $class = "four";
-                    if($q->type == "five")  $class = "five";
-                    // END Modification by UCLouvain
-                    $inputarr = ['type' => $type, 'name' => "question-{$q->id}{$name}", 'value' => $a->id, 'class' => $class];
+                    if($q->type == "two") {
+                        $class = "two";
+                    }
+                    if($q->type == "three") {
+                        $class = "three";
+                    }
+                    if($q->type == "four") {
+                        $class = "four";
+                    }
+                    if($q->type == "five")  {
+                        $class = "five";
+                    }
+                    // END Modification by UCLouvain.
+                    $inputarr = ['type' => $type, 'name' => "question-{$q->id}{$name}", 'value' => $a->id, 'class' => $class
+                                , 'style' => 'margin-right:5px;'];
                     if ($a->selected) {
                         $inputarr['checked'] = 'checked';
                     }

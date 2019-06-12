@@ -16,7 +16,9 @@
 
 /**
  * @package    mod_teamup fork of mod_teambuilder
- * @author     Adam Olley (UNSW)
+ * @copyright  UNSW
+ * @author     Adam Olley
+ * @package fork   mod_teamup
  * @author of modification  Palumbo Dominique (UCLouvain)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

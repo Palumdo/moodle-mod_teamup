@@ -20,7 +20,7 @@
  * @package    mod_teamup
  * @copyright  UCLouvain
  * @author     Palumbo Dominique (UCLouvain)
-*/
+ */
 require_once(dirname(__FILE__).'/../../config.php');
 
 echo '{"trans":[';

@@ -19,16 +19,16 @@
  *
  * @package    mod_teamup
  * @copyright  UCLouvain
- * @author     Palumbo Dominique 
-**/
+ * @author     Palumbo Dominique
+ **/
 
 
-
-global $CFG, $SESSION, $DB;
 
 require_once(__DIR__.'/../../../../config.php');
+global $CFG, $SESSION, $DB;
 require_once($CFG->dirroot.'/lib/excellib.class.php');
-require_once $CFG->dirroot.'/user/profile/lib.php';
+require_once($CFG->dirroot.'/user/profile/lib.php');
+
 
 $id = optional_param('id', 0, PARAM_INT); // The course_module ID, or...
 
@@ -37,7 +37,7 @@ if ($id) {
     $teamup = $DB->get_record('teamup', array('id' => $cm->instance), '*', MUST_EXIST);
 } else {
     die;
-}    
+}
 
 
 require_login($course, true, $cm);
@@ -49,9 +49,9 @@ if (has_capability('mod/teamup:create', $ctxt)) {
 }
 
 if($mode == '') {
-  redirect(new moodle_url('/my'));
-  die();
-}  
+    redirect(new moodle_url('/my'));
+    die();
+}
 
 $reportname = "teamup_export";
 $workbook = new MoodleExcelWorkbook('-');
@@ -84,14 +84,14 @@ foreach($users as $user) {
     $asw = teamup_get_user_answers($cm->instance, $user->id);
 
     $worksheet[0]->write($row, 0, $grp);
-    $worksheet[0]->write($row, 1, date('m/d/Y',$user->timecreated));
+    $worksheet[0]->write($row, 1, date('m/d/Y', $user->timecreated));
     $worksheet[0]->write($row, 2, $user->firstname);
     $worksheet[0]->write($row, 3, $user->lastname);
     $worksheet[0]->write($row, 4, $user->idnumber);
     $worksheet[0]->write($row, 5, $user->email);
     $worksheet[0]->write($row, 6, $asw);
     $row++;
-}    
+}
 
 $workbook->close();
 die;

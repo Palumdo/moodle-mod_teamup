@@ -34,14 +34,14 @@ $PAGE->requires->css('/mod/teamup/styles.css');
 $id = optional_param('id', 0, PARAM_INT); // The course_module ID, or...
 
 if ($id) {
-  list ($course, $cm) = get_course_and_cm_from_cmid($id, 'teamup');
-  $teamup = $DB->get_record('teamup', array('id' => $cm->instance), '*', MUST_EXIST);
+    list ($course, $cm) = get_course_and_cm_from_cmid($id, 'teamup');
+    $teamup = $DB->get_record('teamup', array('id' => $cm->instance), '*', MUST_EXIST);
 } else {
-  if (!$teamup = $DB->get_record('teamup', array('id' => $a), '*', MUST_EXIST)) {
-    print_error(get_string('helperror', 'teamup'));
-  }
-  list ($course, $cm) = get_course_and_cm_from_instance($teamup, 'teamup');
-  $id = $cm->id;
+    if (!$teamup = $DB->get_record('teamup', array('id' => $a), '*', MUST_EXIST)) {
+        print_error(get_string('helperror', 'teamup'));
+    }
+    list ($course, $cm) = get_course_and_cm_from_instance($teamup, 'teamup');
+    $id = $cm->id;
 }
 
 require_login($course, true, $cm);

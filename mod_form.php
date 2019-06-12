@@ -21,14 +21,14 @@
  * @copyright  UNSW
  * @author     UNSW
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- * @modified by Dominique Palumbo (UCLouvain)
- * @Modifications 
+ * Modified by Dominique Palumbo (UCLouvain)
+ * Modifications
     teambuilder was replaced by teamup in the file (same structure)
     modification done when the activities is created
     by default we change the start date  and the end date
     $mform->addElement('date_time_selector', 'open', 'Open Date'
       ,array('startyear' => 2018,'stopyear'  => 2050,'timezone'=> 99,'step'=> 5));
-    ...  
+    ...
  */
 
 defined('MOODLE_INTERNAL') || die();
@@ -66,23 +66,25 @@ class mod_teamup_mod_form extends moodleform_mod {
         }
         $mform->addElement('select', 'groupid', get_string('group'), $options);
 
-        // Added by UCLouvain
-        $mform->addElement('date_time_selector', 'open', get_string('opendate', 'mod_teamup'),array('startyear' => 2018,'stopyear'  => 2050,'timezone'=> 99,'step'=> 5));
+        // Added by UCLouvain.
+        $mform->addElement('date_time_selector', 'open', get_string('opendate', 'mod_teamup'), array('startyear' => 2018,
+                            'stopyear'  => 2050, 'timezone' => 99, 'step'=> 5));
         $defaulttime = strtotime('12:00:00');
         $defaulttime = strtotime('+2 days', $defaulttime);
         $mform->setDefault('open',  $defaulttime);
         $mform->addElement('static', 'openInfo', '', get_string('afterdate', 'mod_teamup'));
-        $mform->addElement('date_time_selector', 'close', get_string('closedate', 'mod_teamup'),array('startyear' => 2018,'stopyear'  => 2050,'timezone'=> 99,'step'=> 5));
+        $mform->addElement('date_time_selector', 'close', get_string('closedate', 'mod_teamup'), array('startyear' => 2018,
+                            'stopyear' => 2050, 'timezone' => 99, 'step'=> 5));
         $defaulttime = strtotime('12:00:00');
         $defaulttime = strtotime('+9 days', $defaulttime);
-        $mform->setDefault('close',  $defaulttime);
-        $mform->addElement('checkbox', 'allowupdate', get_string('updateanswer', 'mod_teamup')); 
-        // END Added by UCLouvain
+        $mform->setDefault('close', $defaulttime);
+        $mform->addElement('checkbox', 'allowupdate', get_string('updateanswer', 'mod_teamup'));
+        // END Added by UCLouvain.
 
         // Add standard elements, common to all modules.
         $features = new stdClass;
-        $features->groups = false;
-        $features->groupings = true;
+        $features->groups           = false;
+        $features->groupings        = true;
         $features->groupmembersonly = true;
         $this->standard_coursemodule_elements($features);
 
