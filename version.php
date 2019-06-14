@@ -13,12 +13,17 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+/**
+ * teamup view.
+ *
+ * @package    mod_teamup 
+ * Fork of teambuilder (mod_teambuilder)
+ * @copyright  UNSW
+ * @author     UNSW
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * Modified by Dominique Palumbo (UCLouvain)
+ */
 
-// TeamUp is a fork of the Moodle module TEAMBUILDER (mod_teambuilder) with an inspiration of GROUPENG 1.3 for the algorithm
-// * @copyright  UNSW
-// * @author     UNSW
-// * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
-// * modified   Dominique Palumbo (UCLouvain).
 
 defined('MOODLE_INTERNAL') || die();
 

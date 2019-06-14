@@ -22,8 +22,6 @@
  * @author     Palumbo Dominique
  **/
 
-
-
 require_once(__DIR__.'/../../../../config.php');
 global $CFG, $SESSION, $DB;
 require_once($CFG->dirroot.'/lib/excellib.class.php');
@@ -48,7 +46,7 @@ if (has_capability('mod/teamup:create', $ctxt)) {
     $mode = 'teacher';
 }
 
-if($mode == '') {
+if ($mode == '') {
     redirect(new moodle_url('/my'));
     die();
 }
@@ -79,7 +77,7 @@ $worksheet[0]->write(0, $col, get_string('answer'));
 $row = 1;
 
 $users = get_enrolled_users($ctxt);
-foreach($users as $user) {
+foreach ($users as $user) {
     $grp = teamup_get_groups($user->id, $course->id);
     $asw = teamup_get_user_answers($cm->instance, $user->id);
 

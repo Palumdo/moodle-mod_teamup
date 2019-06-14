@@ -21,7 +21,7 @@
  * @copyright  2012 -
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * Modified by  Palumbo Dominique (UCLouvain)
- * Modifications 
+ * Modifications
     teambuilder was replaced by teamup in the file (same structure)
  */
 

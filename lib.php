@@ -239,10 +239,10 @@ function teamup_get_groups($usrid, $courseid) {
     global $DB;
 
     $sql = "SELECT distinct name
-              FROM  mdl_user t1
-              LEFT JOIN (SELECT ta.* FROM mdl_groups_members ta, mdl_groups tb WHERE tb.id = ta.groupid AND tb.courseid = :param1) t2 
-                    ON t2.userid = t1.id
-              LEFT JOIN (SELECT * FROM mdl_groups WHERE courseid = :param2)  t3 ON t3.id = t2.groupid
+             FROM  mdl_user t1
+             LEFT JOIN (SELECT ta.* FROM mdl_groups_members ta, mdl_groups tb WHERE tb.id = ta.groupid AND tb.courseid = :param1) t2
+                   ON t2.userid = t1.id
+             LEFT JOIN (SELECT * FROM mdl_groups WHERE courseid = :param2)  t3 ON t3.id = t2.groupid
             WHERE t1.id = :param3
             ORDER BY name";
 
@@ -252,15 +252,15 @@ function teamup_get_groups($usrid, $courseid) {
     $aret = array_keys($groups);
 
     $ret = '';
-    for($i=0; $i<count($aret); $i++) {
+    for ($i = 0; $i < count($aret); $i++) {
         $ret = $ret.','.$aret[$i];
     }
 
     return ltrim($ret, ',');
-} 
+}
 
 /**
- * Get answer for a particular teamup and a particular student 
+ * Get answer for a particular teamup and a particular student
  *
  * @author Dominique Palumbo (Added by UCLouvain)
  * @param int $usrid (user id), int $id (builder id)
@@ -282,10 +282,10 @@ function teamup_get_user_answers($id, $usrid) {
            ";
 
     $params = array('userid' => $usrid, 'builder' => $id);
-    $rslt =  array_keys($DB->get_records_sql($sql, $params));
+    $rslt = array_keys($DB->get_records_sql($sql, $params));
 
     $ret = '';
-    for($i=0; $i<count($rslt); $i++) {
+    for ($i = 0; $i < count($rslt); $i++) {
         $ret = $ret.','.$rslt[$i];
     }
 

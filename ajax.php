@@ -15,12 +15,12 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    mod_teamup fork of mod_teambuilder
+ * @package    mod_teamup 
+ * Fork of mod_teambuilder
  * @copyright  UNSW
  * @author     Adam Olley
- * @package fork   mod_teamup
- * @author of modification  Palumbo Dominique (UCLouvain)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * Modification  Palumbo Dominique (UCLouvain)
  */
 require_once(dirname(__FILE__).'/../../config.php');
 require_once(dirname(__FILE__).'/lib.php');

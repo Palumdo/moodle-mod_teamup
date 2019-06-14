@@ -16,7 +16,8 @@
 /**
  * teamup view.
  *
- * @package    mod_teamup fork of teambuilder (mod_teambuilder)
+ * @package    mod_teamup 
+ * Fork of teambuilder (mod_teambuilder)
  * @copyright  UNSW
  * @author     UNSW
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -228,7 +229,7 @@ HTML;
                 echo '<div style="text-align:center;margin:10px;font-weight:bold;" id="importContainer">';
                 echo $strimportfrom.': <select id="importer">';
                 foreach ($otherbuilders as $o) {
-                    if($teamup->id != $o->id) {
+                    if ($teamup->id != $o->id) {
                         echo "<option value=\"$o->id\">$o->name</option>";
                     }
                 }
@@ -238,7 +239,7 @@ HTML;
                         .'</div>';
 
             }
-            // Modification by UCLouvain
+            // Modification by UCLouvain.
             $straddanewquestion   = get_string('addanewquestion',   'mod_teamup');
             $straddnewquestion    = get_string('addnewquestion',    'mod_teamup');
             $strquestion          = get_string('question');
@@ -289,7 +290,7 @@ HTML;
 </div>
 </div>
 HTML;
-            // END Modification by UCLouvain
+            // END Modification by UCLouvain.
         }
     } else if (($mode == "preview") || ($mode == "student")) {
         $questions = teamup_get_questions($teamup->id, $USER->id);
@@ -339,18 +340,18 @@ HTML;
                         $type = "checkbox";
                         $name = "[]";
                     }
-                    // Modification by UCLouvain
+                    // Modification by UCLouvain.
                     $class = $q->type == "atleastone" ? "atleastone" : "";
-                    if($q->type == "two") {
+                    if ($q->type == "two") {
                         $class = "two";
                     }
-                    if($q->type == "three") {
+                    if ($q->type == "three") {
                         $class = "three";
                     }
-                    if($q->type == "four") {
+                    if ($q->type == "four") {
                         $class = "four";
                     }
-                    if($q->type == "five")  {
+                    if ($q->type == "five")  {
                         $class = "five";
                     }
                     // END Modification by UCLouvain.

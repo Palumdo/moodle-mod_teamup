@@ -19,6 +19,7 @@
  *
  * @package    mod_teamup
  * @copyright  UCLouvain
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  * @author     Palumbo Dominique (UCLouvain)
  */
 require_once(dirname(__FILE__).'/../../config.php');
