@@ -207,7 +207,7 @@ $string['fiveOption']                 = 'Select five of the following:';
 
 $string['deleteAllRed']               = 'Delete all students without answer';
 $string['keepAllRed']                 = 'Keep only students without answer';
-$string['equalizeHelp']               = 'Force to equalize the number of student in each groups. Sometimes necessary after optimization';
+$string['equalizeHelp']               = 'Force to equalize the number of students in each group. Sometimes necessary after optimization';
 $string['prettifyHelp']               = 'This button makes some switches in students distribution to improve the criterias. Succes is not guaranteed but you may repeat optimization several times.';
 
 $string['namingscheme_help']          = 'The at symbol (@) may be used to create groups with names containing letters. For example Group @ will generate groups named Group A, Group B, Group C, ...
