@@ -23,7 +23,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-/** 
+/**
  * Package fork   mod_teamup
  * Modified by  Palumbo Dominique (UCLouvain)
  * Modifications
@@ -68,10 +68,7 @@
         Equalize : Force to equalize the number of student in each groups.
         Sometimes necessary after optimization.
     )
-*/
- 
- 
-
+ */
 require_once(dirname(__FILE__).'/../../config.php');
 require_once(dirname(__FILE__).'/lib.php');
 require_once($CFG->dirroot.'/group/lib.php');
@@ -82,7 +79,6 @@ $PAGE->requires->jquery_plugin('ui-css');
 $PAGE->requires->css('/mod/teamup/styles.css');
 $PAGE->requires->js("/mod/teamup/js/json2.js");
 $PAGE->requires->js_call_amd('mod_teamup/build', 'init');
-
 
 $id                   = optional_param('id',                     0, PARAM_INT);   // The course_module ID, or...
 $a                    = optional_param('a',                      0, PARAM_INT);   // teamup instance ID.
@@ -200,9 +196,9 @@ if (!empty($feedback)) {
 
     $buttons = [
         html_writer::tag('span', get_string('numberofteams', 'mod_teamup'). ' :', ['id' => 'placeithere']),
-        html_writer::tag('button', html_writer::tag('strong', get_string('preview', 'mod_teamup')), ['type' => 'button', 
+        html_writer::tag('button', html_writer::tag('strong', get_string('preview', 'mod_teamup')), ['type' => 'button',
                             'id' => 'buildteams', 'class' => 'btn btn-default']),
-        html_writer::tag('button', get_string('resetteams', 'mod_teamup'), ['type' => 'button', 'id' => 'resetteams', 
+        html_writer::tag('button', get_string('resetteams', 'mod_teamup'), ['type' => 'button', 'id' => 'resetteams',
                             'class' => 'btn btn-default']),
         html_writer::tag('button', get_string('prettify',   'mod_teamup'), ['type' => 'button', 'id' => 'prettify',
                             'class' => 'btn btn-default', 'title' => get_string('prettifyHelp', 'mod_teamup')]),
@@ -280,7 +276,6 @@ if (!empty($feedback)) {
 </div>
 </fieldset>
 
-
 <fieldset>
   <legend id="legendsum" class="myHide">$strsummary</legend>
   <div style="display:none;">
@@ -290,14 +285,13 @@ if (!empty($feedback)) {
                                                         $('#smnu2').removeClass('active');return false;">$strreportdetail </a></li>
       <li id="smnu2" ><a href="#legendsum" onclick="$('.box_ok').hide();$('#smnu2').addClass('active'); $
         ('#smnu1').removeClass('active'); return false;">$strgroupnooptimal</a></li>
-    </ul>    
+    </ul>
     <div class=""container-fluid" style="padding-left:20px;display:;">
       <div class="row inline-block-row" id="summary"></div>
     </div>
   </div>
 </fieldset>
 
-    
 <div style="text-align:center;margin:15px 50px 0px;border-top:1px solid black;padding-top:15px;">
   <button type="button" onclick="$('#createGroupsForm').slideDown(300);" class="creategroups btn btn-default">$strcreategroups
   </button>
@@ -305,7 +299,7 @@ if (!empty($feedback)) {
     <table class="mod-teamup-table" style="margin:auto;width:100%;background:transparent;margin-bottom:5px;">
       <tr id="nameofgroup">
         <td style="width:50%;text-align:left;padding-left:3px;"><label for="groupingName">$strgroupingname</label></td>
-        <td style="padding-right:5px;"><input style="height:26px;text-align:left;padding-left:3px;margin-top:8px;" type="text" 
+        <td style="padding-right:5px;"><input style="height:26px;text-align:left;padding-left:3px;margin-top:8px;" type="text"
             class="form-control" id="groupingName"></td>
       </tr>
       <tr style="display:none;"><td colspan="2" style="text-align:center;font-size:0.8em">or...</td></tr>

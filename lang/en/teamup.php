@@ -54,7 +54,7 @@ The idea is to write some multiple choice questions eventually with restrictions
 The algorithm fills the groups so that the have all the same number of members.
 
 Team Up is a fork of the Moodle plugin <a href=\"https://moodle.org/plugins/mod_teambuilder\" target=\"_blank\"> Team Builder </a> that we used as model to design our interface.
-The Team Up repartition algorithm and his options is inspired of  the Open Source project <a href=\"https://www.groupeng.org/GroupENG\" target=\"_blank\"> GroupEng </a>. ';
+The Team Up repartition algorithm and his options is inspired of  the Open Source project <a href=\"https://www.groupeng.org/GroupENG\" target=\"_blank\"> GroupEng </a>.';
 $string['name']                       = 'Name';
 $string['noeditingafteropentime']     = 'You cannot edit the questionnaire if it has already been opened.';
 $string['none']                       = 'none';
@@ -97,21 +97,18 @@ The purpose of the Team Up module is to allow the creation of groups, based on a
 
 <p>
 The first tab, <b>Questionnaire</b>, enables you to create the questions for students.<br>
-<b>Preview questions</b>, the second tab, presents the questionnaire for students to answer. <br>
+<b>Preview questions</b>, the second tab, presents the questionnaire for students to answer.<br>
 The last tab, <b>Groups creation</b>, enables you to launch the groups creation.
-
 </p>
-
 <p>
 The groups creation takes place in two steps. The first one is a simulation.
 During simulation, it is possible to modify criterias to reorder them and to move students manually from one group to another.
 On the next step; the groups are actually created in Moodle. <br>
 Do not forget to click the <button type=\"button\" class=\"creategroups\" style=\"font-size: 1.0em;\" id=\"\">Create Groups inside Moodle</button> to finalize the group creation.<br>
 </p>
-
 <p>
-There are 4 operators to create groupes. <br>
-There are four basic operators to create the groups. <br>
+There are 4 operators to create groupes.<br>
+There are four basic operators to create the groups.<br>
 <table class="mod-teamup-table">
   <tr><td>Group similar individuals</td><td> = Form groups whose members are similar to defined criteria. Creation of homogeneous groups. Applied to discrete values, with no obligation whatsoever numerical.</td></tr>
   <tr><td>Disperse similar individuals</td><td> = Distribute qualifying students across groups. Applied to discrete values, with no obligation whatsoever numerical.</td></tr>
@@ -135,8 +132,7 @@ Number of teams :<input id="nbteam" min="1" style="width:40px;height:21px;margin
   <li>Optimize : This button makes some switches in students distribution to improve the criterias. Succes is not guaranteed but you may repeat optimization several times.</li>
   <li>Equalize : Force to equalize the number of student in each groups. Sometimes necessary after optimization.</li>
 </ul>
-</p>
-';
+</p>';
 $string['createteams']                = 'Create the groups';
 $string['save']                       = 'Save';
 $string['prettify']                   = 'Optimize';

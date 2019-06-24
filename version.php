@@ -16,7 +16,7 @@
 /**
  * teamup view.
  *
- * @package    mod_teamup 
+ * @package    mod_teamup
  * Fork of teambuilder (mod_teambuilder)
  * @copyright  UNSW
  * @author     UNSW

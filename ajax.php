@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    mod_teamup 
+ * @package    mod_teamup
  * Fork of mod_teambuilder
  * @copyright  UNSW
  * @author     Adam Olley

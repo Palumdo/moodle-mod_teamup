@@ -254,7 +254,7 @@
     border-collapse: collapse;
 }
 
-.path-mod-teamup .studentResponse table td, 
+.path-mod-teamup .studentResponse table td,
 .path-mod-teamup .studentResponse table th {
     border-top: 1px solid white;
     border-bottom: 1px solid white;
@@ -326,13 +326,13 @@
     height: 80px;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
     .path-mod-teamup .inline-block-row {
         word-spacing: -1em;
         letter-spacing: -1em;
         overflow: hidden;
     }
-    
+
     .path-mod-teamup .inline-block-row .col-sm-4 {
         word-spacing: normal;
         vertical-align: top;
@@ -342,7 +342,7 @@
     }
 }
 
-@media (min-width:992px) {
+@media (min-width: 992px) {
     .path-mod-teamup .inline-block-row .col-md-3 {
         float: none;
     }
@@ -386,7 +386,7 @@ table.mod-teamup-table thead th {
 }
 
 table.mod-teamup-table tbody td {
-    background-color: #eeeeee;
+    background-color: #eee;
 }
 
 table.mod-teamup-table tr td:first-child,
@@ -419,14 +419,14 @@ table.mod-teamup-table tr th:last-child {
 
 .path-mod-teamup .myShow:before {
     content: '__';
- 	background: url("css/expanded.png") left center no-repeat;
+    background: url("css/expanded.png") left center no-repeat;
     width: 16px;
     height: 16px;
     color: rgba(255, 255, 255, 1);
 }
 
 .path-mod-teamup #nbteam:disabled {
-    background: #ffffff;
+    background: #fff;
 }
 
 .path-mod-teamup .studentdel {

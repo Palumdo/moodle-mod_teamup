@@ -126,12 +126,12 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
         criterionHTML = '<div  style="position: relative;" class="criterionWrapper sortable">';
         criterionHTML += '  <div class="criterion ui-corner-all">';
         criterionHTML += '    <div class="boolOper" style="display:none;">' + strings.distributionMode + '</div>'; // Moved top.
-        criterionHTML += '    <div class="operator">' + strings.distributionMode 
+        criterionHTML += '    <div class="operator">' + strings.distributionMode
                                     + ' : <select onChange="$(this).parent().prev().html(this.value);" style="margin-top:4px;">';
-        criterionHTML += '      <option  value="' + strings.aggregate +'">' + strings.aggregateLabel +'</option>';
-        criterionHTML += '      <option  value="' + strings.distribute +'">' + strings.distributeLabel +'</option>';
-        criterionHTML += '      <option  value="' + strings.cluster +'">' + strings.clusterLabel +'</option>';
-        criterionHTML += '      <option  value="' + strings.balance +'">' + strings.balanceLabel +'</option>';
+        criterionHTML += '      <option  value="' + strings.aggregate + '">' + strings.aggregateLabel + '</option>';
+        criterionHTML += '      <option  value="' + strings.distribute + '">' + strings.distributeLabel + '</option>';
+        criterionHTML += '      <option  value="' + strings.cluster + '">' + strings.clusterLabel + '</option>';
+        criterionHTML += '      <option  value="' + strings.balance + '">' + strings.balanceLabel + '</option>';
         criterionHTML += '    </select></div>';
         criterionHTML += '    <div class="criterionDelete"></div>';
         criterionHTML += '    ' + strings.question + ' : <select class="questions"></select>';
@@ -146,37 +146,37 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
     var setup = function() {
         $(".stepper").each(function() {
             var val = $(this).html();
-            var spin = "<input id='nbteam' type='number' min='1' style='width:60px;height:26px;margin-top:10px;margin-right:5px;' value='1'>";
+            var spin = "<input id='nbteam' type='number' min='1' style='width:60px;height:26px;margin:10px 5px 0 0;' value='1'>";
             var reload = "<span id='nbstudentsdsp'> / " + $(".student").length + '(' + Math.ceil($(".student").length 
                             / parseInt($("#nbteam").val())) + ')' + "</span>";
             var buttons = $(spin + reload);
         
             $(this).empty();
             $('#placeithere').append(buttons);
-            $('#nbstudentsdsp').html(' / ' + $(".student").length + '(' + Math.ceil($(".student").length / parseInt($("#nbteam").val())) + ')');
-            
+            $('#nbstudentsdsp').html(' / ' + $(".student").length + '(' + Math.ceil($(".student").length 
+                / parseInt($("#nbteam").val())) + ')');
+
             $("#btcreate").click(function() {
                 $('#protectAll').modal('show');
                 var x = $('#nbteam').val();
                 setTimeout(function() {updateTeams(x);$('#protectAll').modal('hide');}, 250);
             });
         });
-        
-        
+
         $("#id_namingscheme").change(function() {
             var x = $('#nbteam').val();
             updateTeams(x);
         });
-    
-    
+
+
         $("#nbteam").change(function() {
             var x = $('#nbteam').val();
             updateTeams(x);
         });
-    
-        $('legend').click(function() {  
+
+        $('legend').click(function() {
             $(this).nextAll('div').toggle();
-            $(this).hasClass('myHide')?($(this).attr("class", "myShow")):($(this).attr("class", "myHide"));
+            $(this).hasClass('myHide') ? ($(this).attr("class", "myShow")) : ($(this).attr("class", "myHide"));
         });
 
         // Compute the max width of a student  
@@ -190,7 +190,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
         $(".student").each(function() {
             $(this).width(maxwidth);
         });
-        
+
         $("#unassigned").on("click", ".studentdel", function(evt) {
             if (preventDeleteClick) {
                 return;
@@ -203,15 +203,15 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             responses[id] = [];
             delete students[id];
             $('#student-' + id).remove();
-            $('#nbstudentsdsp').html(' / ' + $(".student").length + '(' + Math.ceil($(".student").length 
+            $('#nbstudentsdsp').html(' / ' + $(".student").length + '(' + Math.ceil($(".student").length
                                 / parseInt($("#nbteam").val())) + ')');
             initstate = $("#unassigned").html();
-            
+
             $(".criterionWrapper").each(function() {
                 updateRunningCounter($(this).closest(".criterionWrapper").children(".criterion"));
-            });      
-        });  
-        
+            });
+        });
+
         // Response of the student when user click on it.
         $("#unassigned, #teams").on("mouseup", ".student", function(evt) {
             if (preventStudentClick) {
@@ -228,7 +228,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 details.append(detailsTable);
                 for (var i in questions) {
                     var q = questions[i];
-                    qr = []; // Question responses.
+                    var qr = []; // Question responses.
                     for (var j in q.answers) {
                         var a = q.answers[j];
                         if ($.inArray(parseInt(a.id), myResponses) != -1) {
@@ -251,13 +251,13 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 details.remove();
                 $(document).unbind('mousedown', mdevent);
                 }
-            }
+            };
             $(document).mousedown(mdevent);
-        
+
             var moto; // Mouseover timeout.
             var moevent = function(evt) {
                 var stresponse = $(evt.target).closest(".studentResponse");
-                if (evt.target != this && (stresponse.length == 0 || (stresponse.length > 0 
+                if (evt.target != this && (stresponse.length == 0 || (stresponse.length > 0
                     && details.get(0) != stresponse.get(0)))) {
                     if (moto == undefined) {
                         moto = setTimeout(function() { details.remove();}, 500);
@@ -267,7 +267,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                         clearTimeout(moto);
                     }
                 }
-            }
+            };
             $(document).mouseover(moevent);
         }); // End display student answer on click.
 
@@ -296,7 +296,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                     textBoxDone();
                     $(document).unbind('mousedown', mdevent);
                 }
-            }
+            };
 
             $(document).mousedown(mdevent);
             // If you press return.
@@ -321,8 +321,8 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
         });
 
         $('#series').change(function() {
-            window.location.search =  removeParam('group', window.location.search) + '&group=' + $('#series').val();
-        });  
+            window.location.search = removeParam('group', window.location.search) + '&group=' + $('#series').val();
+        });
 
         initstate = $("#unassigned").html();
         updateTeams(1);
@@ -349,7 +349,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             rtn = rtn + "?" + paramsArr.join("&");
         }
         return rtn;
-    }
+    };
     // *****************************************************************************************************************************
     // Update after manual modification of the teams
     // *****************************************************************************************************************************
@@ -423,10 +423,10 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
 
                     sFullTeamName = sTeamName.replace('@', myAlpha);
                 }
-                if ($( "#sumbox_" + i).data("name") === undefined || $( "#sumbox_"+i).data("name").indexOf('dataname') > -1 ) {
+                if ($("#sumbox_" + i).data("name") === undefined || $("#sumbox_" + i).data("name").indexOf('dataname') > -1 ) {
                     sFullTeamName = sFullTeamName.replace('*', '');
                 } else {
-                    sFullTeamName = sFullTeamName.replace('*', $( "#sumbox_"+i).data("name"));
+                    sFullTeamName = sFullTeamName.replace('*', $("#sumbox_" + i).data("name"));
                 }
                 teamNames[i] = sFullTeamName;
             }
@@ -535,7 +535,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 }
 
                 aAnswer = [];
-                studAvgByTeam = Math.ceil(ctr / nbteam);
+                var studAvgByTeam = Math.ceil(ctr / nbteam);
 
                 for (var a in questions[c.question].answers) {
                     aAnswer.push(a);
@@ -551,10 +551,10 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                             lctr++;
                         }
                     }
-                    var reste = (lctr%studAvgByTeam);
+                    var reste = (lctr % studAvgByTeam);
                     var nbAggTeam = parseInt(lctr / studAvgByTeam);
 
-                    color = '';
+                    var color = '';
                     if (reste != 0) {
                         color = 'red';
                         strText = strText + strings.analyzeaggregatewarning.replace('{color}', color)
@@ -619,7 +619,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 var nSum = 0;
                 var aValues = [];
                 for (i in students) {
-                    aRes = responses[i];
+                    var aRes = responses[i];
                     if (responses[i] === false) { // Don't count students with no response.
                         continue;
                     } else {
@@ -888,7 +888,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                     failed = 0;
                     values = 0;
                     for (l in q.answers) { 
-                        color = getColor(aSum[k].answers[l],i);
+                        var color = getColor(aSum[k].answers[l],i);
                         if (color != '' && color.indexOf('red') != -1) {
                             failed = 1;
                         }
@@ -921,10 +921,10 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 if (typeof teamAvg[i] !== 'undefined') {
                     var aTemp = {};
                     aTemp.id = -1;
-                    color = getColor(aTemp, i);
+                    var color = getColor(aTemp, i);
                     message = message + strings.average + " :<span style='" + color + "'>" + teamAvg[i] + "</span><br>";
                     if (color.indexOf('red') != -1) {
-                        message = message + "<b><span style='color:red'>"   + strings.averagewarning + "</span></b><br>";
+                        message = message + "<b><span style='color:red'>" + strings.averagewarning + "</span></b><br>";
                         gpok = 0;
                     } else {
                         gpok++;
@@ -934,9 +934,9 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 message = message + "</div>";
                 if (gpok > 0) {
                     groupeOK++;
-                    message = message.replace('{sumbox_'+i+'}', 'box_ok');
+                    message = message.replace('{sumbox_' + i + '}', 'box_ok');
                 } else {
-                    message = message.replace('{sumbox_'+i+'}', 'box_ko');
+                    message = message.replace('{sumbox_' + i + '}', 'box_ko');
                 }
             }
         }
@@ -946,7 +946,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             teamGood = groupeOK;
             var nSuccess = (groupeOK / teamNames.length) * 100;
 
-            colSuccess = 'red';
+            var colSuccess = 'red';
             if (nSuccess > 80) { 
                 colSuccess = 'orange';
             }
@@ -958,7 +958,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             message = message +'<div class="col-sm-4 col-md-3 border-rounded-right">';
             message = message + strings.nbGroupSuccess + ' : <span style="color:' + colSuccess + ';">' + groupeOK + '/'
                 + teamNames.length + '</span>';
-            message = message + '<br>' + strings.nbStudent + ' : '+ nbStudent;
+            message = message + '<br>' + strings.nbStudent + ' : ' + nbStudent;
             message = message + '</div>';
             if (typeof teamAvg[i] !== 'undefined') {
                 message = message + '<div class="col-sm-4 col-md-3 border-rounded-right">' + strings.average + ' : ' + average
@@ -970,7 +970,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                     + average + '<br>' + strings.standarddeviation + ' :' + ecartType + '<br>' + strings.bornes + ':'
                     + (average - (ecartType / 2)).toFixed(2) + '-' + (average + (ecartType / 2)).toFixed(2));
             } else {
-                $('#feedback').html(strings.teamupsuccessnbr + ' : <span style="color:'+colSuccess+';">'+ groupeOK + '/'
+                $('#feedback').html(strings.teamupsuccessnbr + ' : <span style="color:' + colSuccess + ';">' + groupeOK + '/'
                     + teamNames.length + '</span><br>' + strings.nbStudent + ' : '+ nbStudent);
             }
         } else {
@@ -1114,7 +1114,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             }
             // In case of distribute put all answers if none of them are selected
             if (aCommand[i][0] == strings.distribute && aCommand[i][1] == '') {
-                for (qa in questions[criterion['question']].answers) {
+                for (var qa in questions[criterion['question']].answers) {
                     aCommand[i][1] = aCommand[i][1] + qa + ',';
                 }
             }
@@ -1126,7 +1126,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 aCommand[i][1] = '';
                 $('#aggList').empty();
                 $('#aggList').append($('<option>', { value: '',text : '' }));
-                for (qa in questions[criterion['question']].answers) {
+                for (var qa in questions[criterion['question']].answers) {
                     aCommand[i][1] = aCommand[i][1] + qa + ',';
                     $('#aggList').append($('<option>'
                         ,{ value: questions[criterion['question']].answers[qa].answer.split(' ').join('_')
@@ -1138,7 +1138,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
 
             // Balance get all as answers (to be use to find answer in student answers)
             if (aCommand[i][0] == strings.balance) {
-                for (qa in questions[criterion['question']].answers) {
+                for (var qa in questions[criterion['question']].answers) {
                     aCommand[i][1] = aCommand[i][1] + qa + ',';
                 }
             }
@@ -1258,7 +1258,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             for (k = 0; k < teamAssignments[j].length; k++) { // Loop students
                 for (l = 0; l < aNeeded.length; l++) { // Loop values
                     if (responses[teamAssignments[j][k]].length > 0 && responses[teamAssignments[j][k]].indexOf(
-                            parseInt(aNeeded[l],10)) != -1)  {
+                            parseInt(aNeeded[l], 10)) != -1) {
                    ecart += Math.pow(parseInt(questions[aCommand[i][2]].answers[parseInt(aNeeded[l], 10)].answer, 10) - average, 2);
                         break;
                     }
@@ -1320,9 +1320,9 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                     // The average of team is lower than the average - 50% of the standard deviation
                     for (l = 0; l < aNeeded.length; l++) { // Loop values
                         if (responses[teamAssignments[j][k]].length > 0
-                                && responses[teamAssignments[j][k]].indexOf(parseInt(aNeeded[l],10)) != -1)  {
+                                && responses[teamAssignments[j][k]].indexOf(parseInt(aNeeded[l], 10)) != -1) {
                             // If student result is lower than the average find a heavier one...
-                            if (parseInt(questions[aCommand[i][2]].answers[parseInt(aNeeded[l],10)].answer,10) <  average) {
+                            if (parseInt(questions[aCommand[i][2]].answers[parseInt(aNeeded[l], 10)].answer, 10) <  average) {
                                 var oStudent = findSwapBalance(i, j, 1);
                                 if (oStudent.length > 0) {
                                     swapStudent(j, k, oStudent);
@@ -1676,7 +1676,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                 aStudentgroup[k].id = teamAssignments[j][k];
                 aStudentgroup[k].weight = aDontMove.reduce(function(n, val) {return n + (val === teamAssignments[j][k]);}, 0);
             }
-            aStudentgroup.sort(function(a,b) {return b.weight - a.weight} );
+            aStudentgroup.sort(function(a,b) {return b.weight - a.weight});
             teamAssignmentsWeight[j] = [];
             for (var k = 0; k < teamAssignments[j].length; k++) {
                 teamAssignments[j][k]       = aStudentgroup[k].id;
@@ -2207,7 +2207,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
 
             // Balance get all as answers
             if (aMyCommand[0] == strings.balance) {
-                for (qa in questions[criterion['question']].answers) {
+                for (var qa in questions[criterion['question']].answers) {
                     if ($.isNumeric(questions[aMyCommand[2]].answers[qa].answer) == false) {
                         return false;
                     }

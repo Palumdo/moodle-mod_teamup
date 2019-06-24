@@ -26,5 +26,5 @@ var criterion = function(name) {
             of the following answers: \
             <div id="answers"></div>');
             creator.dialog({});
-    }
+    };
 };
