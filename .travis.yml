@@ -24,7 +24,6 @@ env:
   - MOODLE_BRANCH=MOODLE_35_STABLE
   - MOODLE_BRANCH=MOODLE_34_STABLE
   - MOODLE_BRANCH=MOODLE_33_STABLE
-  - MOODLE_BRANCH=MOODLE_32_STABLE
   
  matrix:
   - DB=pgsql
@@ -50,6 +49,5 @@ script:
   - moodle-plugin-ci savepoints
   - moodle-plugin-ci mustache
   - moodle-plugin-ci grunt
-  - moodle-plugin-ci phpdoc
   - moodle-plugin-ci phpunit
   - moodle-plugin-ci behat
