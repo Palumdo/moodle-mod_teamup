@@ -29,6 +29,9 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
+define('TEAMUP_EVENT_TYPE_OPEN', 'open');
+define('TEAMUP_EVENT_TYPE_CLOSE', 'close');
+
 
 /**
  * Given an object containing all the necessary data,
@@ -40,8 +43,19 @@ defined('MOODLE_INTERNAL') || die();
  * @return int The id of the newly inserted teamup record
  */
 function teamup_add_instance($teamup) {
-    global $DB;
-    return $DB->insert_record('teamup', $teamup);
+    global $DB, $CFG;
+    require_once($CFG->dirroot.'/mod/teamup/locallib.php');
+    
+    $ret = $DB->insert_record('teamup', $teamup);
+    $teamup->id = $ret;
+    // Add calendar events if necessary.
+    teamup_set_events($teamup);
+    if (!empty($teamup->completionexpected)) {
+        \core_completion\api::update_completion_date_event($teamup->coursemodule, 'teamup', $teamup->id,
+            $teamup->completionexpected);
+    }
+
+    return $ret;
 }
 
 /**
@@ -53,7 +67,9 @@ function teamup_add_instance($teamup) {
  * @return boolean Success/Fail
  */
 function teamup_update_instance($teamup) {
-    global $DB;
+    global $DB, $CFG;
+    require_once($CFG->dirroot.'/mod/teamup/locallib.php');
+    
     $teamup->timemodified = time();
     $teamup->id = $teamup->instance;
 
@@ -63,8 +79,14 @@ function teamup_update_instance($teamup) {
     if (!isset($teamup->allowupdate)) {
         $teamup->allowupdate = 0;
     }
+    $ret = $DB->update_record('teamup', $teamup);
 
-    return $DB->update_record('teamup', $teamup);
+    // Add calendar events if necessary.
+    teamup_set_events($teamup);
+    $completionexpected = (!empty($teamup->completionexpected)) ? $teamup->completionexpected : null;
+    \core_completion\api::update_completion_date_event($teamup->coursemodule, 'teamup', $teamup->id, $completionexpected);
+    
+    return $ret;
 }
 
 /**
@@ -85,6 +107,11 @@ function teamup_delete_instance($id) {
     $result = true;
 
     if (!$DB->delete_records('teamup', array('id' => $teamup->id))) {
+        $result = false;
+    }
+
+    // Remove old calendar events.
+    if (!$DB->delete_records('event', array('modulename' => 'teamup', 'instance' => $teamup->id))) {
         $result = false;
     }
 

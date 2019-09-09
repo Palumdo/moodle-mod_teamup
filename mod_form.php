@@ -68,13 +68,13 @@ class mod_teamup_mod_form extends moodleform_mod {
 
         // Added by UCLouvain.
         $mform->addElement('date_time_selector', 'open', get_string('opendate', 'mod_teamup'), array('startyear' => 2018,
-                            'stopyear' => 2050, 'timezone' => 99, 'step'=> 5));
+                            'stopyear' => 2050, 'timezone' => 99, 'step' => 5));
         $defaulttime = strtotime('12:00:00');
         $defaulttime = strtotime('+2 days', $defaulttime);
         $mform->setDefault('open',  $defaulttime);
         $mform->addElement('static', 'openInfo', '', get_string('afterdate', 'mod_teamup'));
         $mform->addElement('date_time_selector', 'close', get_string('closedate', 'mod_teamup'), array('startyear' => 2018,
-                            'stopyear' => 2050, 'timezone' => 99, 'step'=> 5));
+                            'stopyear' => 2050, 'timezone' => 99, 'step'    => 5));
         $defaulttime = strtotime('12:00:00');
         $defaulttime = strtotime('+9 days', $defaulttime);
         $mform->setDefault('close', $defaulttime);

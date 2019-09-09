@@ -235,3 +235,6 @@ $string['jserror04']                   = 'Enter at least six answers, please';
 $string['saving']                      = 'Saving...';
 $string['saved']                       = 'Saved!';
 $string['exportexcel']                 = 'Download all answers in Excel';
+
+$string['calendarstart']               = 'Open Date';
+$string['calendarend']                 = 'Close Date';

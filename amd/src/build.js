@@ -14,14 +14,14 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * 
+ *
  *
  * @package    mod_teamup fork of mod_teambuilder
  * @copyright  UNSW
  * @author     UNSW
  * @author     Adam Olley
  * modified by  Palumbo Dominique (UCLouvain)
- * modification 
+ * modification
     The and & or operations was replaced by
 
     -Group similar individuals = Form groups whose members are similar to
@@ -121,7 +121,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
         strings.analyzeaggregatewarningOK = s[33];
         strings.serie = s[34];
 
-        // Small dialog to select criterion. 
+        // Small dialog to select criterion.
         // boolOper is kept for historical reason. Inheritance from the teambuilder original module.
         criterionHTML = '<div  style="position: relative;" class="criterionWrapper sortable">';
         criterionHTML += '  <div class="criterion ui-corner-all">';
@@ -145,15 +145,15 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
     // *****************************************************************************************************************************
     var setup = function() {
         $(".stepper").each(function() {
-            var val = $(this).html();
+            
             var spin = "<input id='nbteam' type='number' min='1' style='width:60px;height:26px;margin:10px 5px 0 0;' value='1'>";
-            var reload = "<span id='nbstudentsdsp'> / " + $(".student").length + '(' + Math.ceil($(".student").length 
+            var reload = "<span id='nbstudentsdsp'> / " + $(".student").length + '(' + Math.ceil($(".student").length
                             / parseInt($("#nbteam").val())) + ')' + "</span>";
             var buttons = $(spin + reload);
-        
+
             $(this).empty();
             $('#placeithere').append(buttons);
-            $('#nbstudentsdsp').html(' / ' + $(".student").length + '(' + Math.ceil($(".student").length 
+            $('#nbstudentsdsp').html(' / ' + $(".student").length + '(' + Math.ceil($(".student").length
                 / parseInt($("#nbteam").val())) + ')');
 
             $("#btcreate").click(function() {
@@ -179,7 +179,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             $(this).hasClass('myHide') ? ($(this).attr("class", "myShow")) : ($(this).attr("class", "myHide"));
         });
 
-        // Compute the max width of a student  
+        // Compute the max width of a student.
         $(".student").each(function() {
             if ($(this).width() > maxwidth) {
                 maxwidth = $(this).width();
@@ -573,7 +573,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                     }
                 }
                 break;
-                // DISTRIBUTE
+            // DISTRIBUTE
             case strings.distribute:
                 for (i in students) {
                     if (responses[i] === false) { // Don't count students with no response.
@@ -601,7 +601,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
                     } else {
                         status = strings.analyzedistributewarning.replace('{nbteam}', nbteam);
                     }
-                    strText = strText + 
+                    strText = strText +
                         strings.analyzedistributecriterion.replace('{answer}', questions[c.question].answers[aAnswer[j]].answer)
                         .replace('{nbstudent}', ctr)
                         .replace('{status}', status);
@@ -1097,7 +1097,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
             nbStudent++;
         });
 
-        aCommand = []; // Keep the list of command (cluster, etc), id's too look for and question ID
+        aCommand = []; // Keep the list of command (cluster, etc), id's to look for and question ID
         i = 0;
         bAgg = false;
         for (c in criterionGroup) {

@@ -35,7 +35,6 @@ defined('MOODLE_INTERNAL') || die();
 class restore_teamup_activity_structure_step extends restore_activity_structure_step {
 
     protected function define_structure() {
-
         $paths = array();
         $userinfo = $this->get_setting_value('userinfo');
 
@@ -62,7 +61,7 @@ class restore_teamup_activity_structure_step extends restore_activity_structure_
         global $DB;
 
         $data = (object)$data;
-        $oldid = $data->id;
+        
         $data->course   = $this->get_courseid();
         $data->groupid  = $this->get_mappingid('group', $data->groupid);
         $defaulttime    = strtotime('12:00:00');
@@ -82,7 +81,6 @@ class restore_teamup_activity_structure_step extends restore_activity_structure_
         global $DB;
 
         $data = (object)$data;
-        $oldid = $data->id;
 
         $data->answerid = $this->get_new_parentid('teamup_answer');
         $data->userid = $this->get_mappingid('user', $data->userid);
@@ -112,8 +110,6 @@ class restore_teamup_activity_structure_step extends restore_activity_structure_
     }
 
     protected function after_execute() {
-        global $DB;
-
         $this->add_related_files('mod_teamup', 'intro', null);
     }
 }

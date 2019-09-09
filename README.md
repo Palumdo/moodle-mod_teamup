@@ -20,6 +20,8 @@ with Kathryn Dimiduk of Cornell Engineering's
 James McCormick Family Teaching Excellence Institute. 
 For more information about Team Up operation watch the video or read documentation
 
+The main contributors are Philippe Bocquier, Patrick Gérin, Andreia Lemaître, Isabelle Motte and Séverine Gossiaux
+
 [Demo video](https://podcast.uclouvain.be/xrSPa06aT4)
 ##Install
 ### Using Moodle
