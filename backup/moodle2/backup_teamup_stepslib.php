@@ -36,7 +36,7 @@ class backup_teamup_activity_structure_step extends backup_activity_structure_st
 
         // Define each element separated.
         $teamup = new backup_nested_element('teamup', array('id'), array(
-            'course', 'name', 'intro', 'introformat', 'open', 'close', 'groupid', 'allowupdate',
+            'course', 'name', 'intro', 'introformat', 'opened', 'closed', 'groupid', 'allowupdate',
         ));
 
         $questions = new backup_nested_element('questions');

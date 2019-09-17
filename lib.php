@@ -46,18 +46,6 @@ function teamup_add_instance($teamup) {
     global $DB, $CFG;
     require_once($CFG->dirroot.'/mod/teamup/locallib.php');
     
-    if($CFG->dbtype == 'sqlsrv') {
-        if (isset($teamup->close)) {
-            $teamup->{'[close]'} = $teamup->close;
-            unset($teamup->close);
-        }
-
-        if (isset($teamup->open)) {
-            $teamup->{'[open]'} = $teamup->open;
-            unset($teamup->open);
-        }
-    }
-    
     $ret = $DB->insert_record('teamup', $teamup);
     $teamup->id = $ret;
     // Add calendar events if necessary.
@@ -86,7 +74,7 @@ function teamup_update_instance($teamup) {
     $teamup->id = $teamup->instance;
 
     if (isset($teamup->opendt)) {
-        $teamup->open = $teamup->opendt;
+        $teamup->opened = $teamup->opendt;
     }
     if (!isset($teamup->allowupdate)) {
         $teamup->allowupdate = 0;

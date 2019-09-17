@@ -46,15 +46,15 @@ function teamup_set_events($teamup) {
     $event = new stdClass();
     $event->eventtype = TEAMUP_EVENT_TYPE_OPEN;
     // The teamup_EVENT_TYPE_OPEN event should only be an action event if no close time is specified.
-    $event->type = empty($teamup->close) ? CALENDAR_EVENT_TYPE_ACTION : CALENDAR_EVENT_TYPE_STANDARD;
+    $event->type = empty($teamup->closed) ? CALENDAR_EVENT_TYPE_ACTION : CALENDAR_EVENT_TYPE_STANDARD;
     if ($event->id = $DB->get_field('event', 'id',
             array('modulename' => 'teamup', 'instance' => $teamup->id, 'eventtype' => $event->eventtype))) {
-        if ((!empty($teamup->open)) && ($teamup->open > 0)) {
+        if ((!empty($teamup->opened)) && ($teamup->opened > 0)) {
             // Calendar event exists so update it.
             $event->name         = get_string('calendarstart', 'teamup', $teamup->name);
             $event->description  = format_module_intro('teamup', $teamup, $teamup->coursemodule);
-            $event->timestart    = $teamup->open;
-            $event->timesort     = $teamup->open;
+            $event->timestart    = $teamup->opened;
+            $event->timesort     = $teamup->opened;
             $event->visible      = instance_is_visible('teamup', $teamup);
             $event->timeduration = 0;
             $calendarevent = calendar_event::load($event->id);
@@ -66,7 +66,7 @@ function teamup_set_events($teamup) {
         }
     } else {
         // Event doesn't exist so create one.
-        if ((!empty($teamup->open)) && ($teamup->open > 0)) {
+        if ((!empty($teamup->opened)) && ($teamup->opened > 0)) {
             $event->name         = get_string('calendarstart', 'teamup', $teamup->name);
             $event->description  = format_module_intro('teamup', $teamup, $teamup->coursemodule);
             $event->courseid     = $teamup->course;
@@ -74,8 +74,8 @@ function teamup_set_events($teamup) {
             $event->userid       = 0;
             $event->modulename   = 'teamup';
             $event->instance     = $teamup->id;
-            $event->timestart    = $teamup->open;
-            $event->timesort     = $teamup->open;
+            $event->timestart    = $teamup->opened;
+            $event->timesort     = $teamup->opened;
             $event->visible      = instance_is_visible('teamup', $teamup);
             $event->timeduration = 0;
             calendar_event::create($event, false);
@@ -88,12 +88,12 @@ function teamup_set_events($teamup) {
     $event->eventtype = TEAMUP_EVENT_TYPE_CLOSE;
     if ($event->id = $DB->get_field('event', 'id',
             array('modulename' => 'teamup', 'instance' => $teamup->id, 'eventtype' => $event->eventtype))) {
-        if ((!empty($teamup->close)) && ($teamup->close > 0)) {
+        if ((!empty($teamup->closed)) && ($teamup->closed > 0)) {
             // Calendar event exists so update it.
             $event->name         = get_string('calendarend', 'teamup', $teamup->name);
             $event->description  = format_module_intro('teamup', $teamup, $teamup->coursemodule);
-            $event->timestart    = $teamup->close;
-            $event->timesort     = $teamup->close;
+            $event->timestart    = $teamup->closed;
+            $event->timesort     = $teamup->closed;
             $event->visible      = instance_is_visible('teamup', $teamup);
             $event->timeduration = 0;
             $calendarevent = calendar_event::load($event->id);
@@ -105,7 +105,7 @@ function teamup_set_events($teamup) {
         }
     } else {
         // Event doesn't exist so create one.
-        if ((!empty($teamup->close)) && ($teamup->close > 0)) {
+        if ((!empty($teamup->closed)) && ($teamup->closed > 0)) {
             $event->name         = get_string('calendarend', 'teamup', $teamup->name);
             $event->description  = format_module_intro('teamup', $teamup, $teamup->coursemodule);
             $event->courseid     = $teamup->course;
@@ -113,8 +113,8 @@ function teamup_set_events($teamup) {
             $event->userid       = 0;
             $event->modulename   = 'teamup';
             $event->instance     = $teamup->id;
-            $event->timestart    = $teamup->close;
-            $event->timesort     = $teamup->close;
+            $event->timestart    = $teamup->closed;
+            $event->timesort     = $teamup->closed;
             $event->visible      = instance_is_visible('teamup', $teamup);
             $event->timeduration = 0;
             calendar_event::create($event, false);

@@ -50,7 +50,7 @@ if (!isset($output['status']) || $output['status'] != 'fail') {
         case "saveQuestionnaire":
         {
             require_capability('mod/teamup:create', $ctxt);
-            if ($teamup->open < time()) {
+            if ($teamup->opened < time()) {
                 $output['status'] = 'fail';
                 $output['message'] = get_string('cannotupdate', 'mod_teamup');
                 break;

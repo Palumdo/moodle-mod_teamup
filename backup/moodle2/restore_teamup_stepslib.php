@@ -67,8 +67,8 @@ class restore_teamup_activity_structure_step extends restore_activity_structure_
         $defaulttime    = strtotime('12:00:00');
         $opentime       = strtotime('+2 days', $defaulttime);
         $closetime      = strtotime('+9 days', $defaulttime);
-        $data->open     = $opentime;
-        $data->close    = $closetime;
+        $data->opened   = $opentime;
+        $data->closed   = $closetime;
 
         // Insert the teamup record.
         $newid = $DB->insert_record('teamup', $data);

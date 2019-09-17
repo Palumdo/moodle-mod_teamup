@@ -132,7 +132,7 @@ if (has_capability('mod/teamup:create', $ctxt)) {
     $PAGE->requires->js("/mod/teamup/js/view.js");
 }
 
-if (($mode == 'teacher') && ($teamup->open < time()) && !isset($_GET['f'])) {
+if (($mode == 'teacher') && ($teamup->opened < time()) && !isset($_GET['f'])) {
     redirect(new moodle_url('/mod/teamup/build.php', ['id' => $id]));
 }
 
@@ -150,7 +150,7 @@ if (($mode == "student") && $teamup->groupid && !groups_is_member($teamup->group
     echo '<div style="display:inline-block; padding-left:10px; padding-right:10px;" class="ui-state-highlight ui-corner-all">';
     echo '<p>'.get_string('noneedtocomplete', 'mod_teamup').'</p>';
     echo '</div></div>';
-} else if (($mode == "student") && (($teamup->open > time()) || $teamup->close < time())) {
+} else if (($mode == "student") && (($teamup->opened > time()) || $teamup->closed < time())) {
     echo '<div class="ui-widget" style="text-align:center;">';
     echo '<div style="display:inline-block; padding-left:10px; padding-right:10px;" class="ui-state-highlight ui-corner-all">';
     echo '<p>'.get_string('notopen', 'mod_teamup').'</p>';
@@ -175,7 +175,7 @@ if (($mode == "student") && $teamup->groupid && !groups_is_member($teamup->group
 
         echo $output->navigation_tabs($id, "questionnaire");
 
-        if ($teamup->open < time()) {
+        if ($teamup->opened < time()) {
             echo '<div class="ui-widget" style="text-align:center;">';
             $style = "display:inline-block; padding-left:10px; padding-right:10px;";
             echo '<div style="'.$style.'" class="ui-state-highlight ui-corner-all">';
@@ -213,7 +213,7 @@ HTML;
 
         echo '</div>';
 
-        if ($teamup->open > time()) {
+        if ($teamup->opened > time()) {
 
             // New question form.
             $onclick = "saveQuestionnaire('{$CFG->wwwroot}/mod/teamup/ajax.php', {$id})";

@@ -37,5 +37,33 @@ function xmldb_teamup_upgrade($oldversion = 0) {
 
     $dbman = $DB->get_manager();
 
+    if ($oldversion < 2019091700) {
+        // Rename field 'open' on table 'teamup' as it is a reserved word in MySQL.
+        $table = new xmldb_table('teamup');
+        $field = new xmldb_field('open');
+        if ($dbman->field_exists($table, $field)) {
+            $field->set_attributes(XMLDB_TYPE_INTEGER, '11', XMLDB_UNSIGNED, null, null, null, 'introformat');
+            // Extend the execution time limit of the script to 2 hours.
+            upgrade_set_timeout(7200);
+            // Rename it to 'opened'.
+            $dbman->rename_field($table, $field, 'opened');
+        }
+
+        // Rename field 'close' on table 'teamup' as it is a reserved word in MySQL.
+        $table = new xmldb_table('teamup');
+        $field = new xmldb_field('close');
+        if ($dbman->field_exists($table, $field)) {
+            $field->set_attributes(XMLDB_TYPE_INTEGER, '11', XMLDB_UNSIGNED, null, null, null, 'opened');
+            // Extend the execution time limit of the script to 5 minutes.
+            upgrade_set_timeout(300);
+            // Rename it to 'closed'.
+            $dbman->rename_field($table, $field, 'closed');
+        }
+
+        // Savepoint reached.
+        upgrade_mod_savepoint(true, 2019091700, 'teamup');
+    }
+    
+
     return true;
 }

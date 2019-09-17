@@ -26,7 +26,7 @@
     teambuilder was replaced by teamup in the file (same structure)
     modification done when the activities is created
     by default we change the start date  and the end date
-    $mform->addElement('date_time_selector', 'open', 'Open Date'
+    $mform->addElement('date_time_selector', 'opened', 'Open Date'
       ,array('startyear' => 2018,'stopyear'  => 2050,'timezone'=> 99,'step'=> 5));
     ...
  */
@@ -67,17 +67,17 @@ class mod_teamup_mod_form extends moodleform_mod {
         $mform->addElement('select', 'groupid', get_string('group'), $options);
 
         // Added by UCLouvain.
-        $mform->addElement('date_time_selector', 'open', get_string('opendate', 'mod_teamup'), array('startyear' => 2018,
+        $mform->addElement('date_time_selector', 'opened', get_string('opendate', 'mod_teamup'), array('startyear' => 2018,
                             'stopyear' => 2050, 'timezone' => 99, 'step' => 5));
         $defaulttime = strtotime('12:00:00');
         $defaulttime = strtotime('+2 days', $defaulttime);
-        $mform->setDefault('open',  $defaulttime);
+        $mform->setDefault('opened',  $defaulttime);
         $mform->addElement('static', 'openInfo', '', get_string('afterdate', 'mod_teamup'));
-        $mform->addElement('date_time_selector', 'close', get_string('closedate', 'mod_teamup'), array('startyear' => 2018,
+        $mform->addElement('date_time_selector', 'closed', get_string('closedate', 'mod_teamup'), array('startyear' => 2018,
                             'stopyear' => 2050, 'timezone' => 99, 'step'    => 5));
         $defaulttime = strtotime('12:00:00');
         $defaulttime = strtotime('+9 days', $defaulttime);
-        $mform->setDefault('close', $defaulttime);
+        $mform->setDefault('closed', $defaulttime);
         $mform->addElement('checkbox', 'allowupdate', get_string('updateanswer', 'mod_teamup'));
         // END Added by UCLouvain.
 
@@ -97,12 +97,12 @@ class mod_teamup_mod_form extends moodleform_mod {
 
         $mform = $this->_form;
         if ($id = $mform->getElementValue('update')) {
-            $dta = $mform->getElementValue('open');
+            $dta = $mform->getElementValue('opened');
             $dt = mktime($dta['hour'][0], $dta['minute'][0], 0, $dta['month'][0], $dta['day'][0], $dta['year'][0]);
             if ($dt < time()) {
                 $el = $mform->createElement('static', 'openlabel', get_string('opendate', 'mod_teamup'), date("D d/m/Y H:i", $dt));
-                $mform->insertElementBefore($el, 'open');
-                $mform->removeElement('open');
+                $mform->insertElementBefore($el, 'opened');
+                $mform->removeElement('opened');
                 $mform->addElement('hidden', 'opendt', $dt);
             }
         }
