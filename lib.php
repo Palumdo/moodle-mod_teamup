@@ -46,6 +46,18 @@ function teamup_add_instance($teamup) {
     global $DB, $CFG;
     require_once($CFG->dirroot.'/mod/teamup/locallib.php');
     
+    if($CFG->dbtype == 'sqlsrv') {
+        if (isset($teamup->close)) {
+            $teamup->{'[close]'} = $teamup->close;
+            unset($teamup->close);
+        }
+
+        if (isset($teamup->open)) {
+            $teamup->{'[open]'} = $teamup->open;
+            unset($teamup->open);
+        }
+    }
+    
     $ret = $DB->insert_record('teamup', $teamup);
     $teamup->id = $ret;
     // Add calendar events if necessary.
@@ -317,4 +329,43 @@ function teamup_get_user_answers($id, $usrid) {
     }
 
     return ltrim($ret, ',');
+}
+
+/**
+ * This function is used by the reset_course_userdata function in moodlelib.
+ * This function will remove all posts from the specified forum
+ * and clean up any related data.
+ *
+ * @global object
+ * @param $data the data submitted from the reset course.
+ * @return array status array
+ */
+ function teamup_reset_userdata($data) {
+    global $DB;
+
+    if (empty($data)) {
+        return;
+    }
+
+    if (!isset($data->courseid)) {
+        return;
+    }
+
+    $sql = "SELECT *
+              FROM {teamup_response} t1
+             WHERE t1.answerid in ( SELECT distinct(t3.id)
+                                      FROM {teamup} t1
+                                          ,{teamup_question} t2
+                                          ,{teamup_answer} t3
+                                     WHERE course = :param1
+                                       AND t1.id = t2.builder
+                                       AND t3.question = t2.id
+                                  )
+           ";
+    $params = array('param1' => $data->courseid);
+    $responses = $DB->get_records_sql($sql, $params);
+
+    foreach ($responses as &$res) {
+        $DB->delete_records('teamup_response', array('id' => $res->id));
+    }
 }
