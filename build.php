@@ -182,12 +182,17 @@ if (!empty($feedback)) {
               </legend>
               <div>
                   '.get_string('groupSchemaName', 'mod_teamup').'
-                  <span class="helptooltip">
+                    <a class="btn btn-link p-0" role="button" data-container="body" data-toggle="popover" data-placement="right" 
+                    data-content="'.get_string('namingscheme_help', 'mod_teamup').' " 
+                    data-html="true" tabindex="0" data-trigger="focus" data-original-title="" title="" >
+                      <i class="icon fa fa-question-circle text-info fa-fw " title="'.get_string('help').'" aria-label="'.get_string('help').'" ></i>
+                    </a>                  
+                  <!--<span class="helptooltip">
                       <a href="'.$CFG->httpswwwroot.'/help.php?component=teamup&amp;identifier=namingscheme&amp;lang='
                       .current_language().'" title="'.get_string('help').'" aria-haspopup="true" target="_blank"
                       id="yui_3_17_2_1_1531814373153_307"><img width="32" class="icon iconhelp" alt="'.get_string('help').'"
                       title="'.get_string('help').'" src="'.$imgico.'"></a>
-                  </span>: <input name="namingscheme" value="'.get_string('groupTitle', 'mod_teamup').' #" id="id_namingscheme"
+                  </span>-->: <input name="namingscheme" value="'.get_string('groupTitle', 'mod_teamup').' #" id="id_namingscheme"
                             type="text" style="height:26px;margin-top:10px;">
               </div>
           </fieldset>';

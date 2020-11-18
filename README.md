@@ -2,8 +2,6 @@
 ![Alt text](https://github.com/Palumdo/moodle-mod_teamup/blob/master/pix/icon.svg)
 # Team Up activity for Moodle is a development based on the Teambuilder activity for Moodle ( Thank you Adam Olley)
 
-[![Coverage Status](https://coveralls.io/repos/github/Palumdo/moodle-mod_teamup/badge.svg?branch=master)](https://coveralls.io/github/Palumdo/moodle-mod_teamup?branch=master)
-
 #This readme files is based on the one of TEAMBUILDER module The Team Up module was developed by the Universty Catholic of Louvain.
 
 Developed by UCLouvain, this is an advanced tool for building teams(group) based on a set of criteria. 

@@ -20,6 +20,7 @@ env:
  matrix:
   - DB=pgsql MOODLE_BRANCH=MOODLE_36_STABLE
   - DB=pgsql MOODLE_BRANCH=MOODLE_37_STABLE
+  - DB=pgsql MOODLE_BRANCH=MOODLE_38_STABLE
   - DB=pgsql MOODLE_BRANCH=master
   
 before_install:
