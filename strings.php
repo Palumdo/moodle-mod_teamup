@@ -39,6 +39,8 @@ echo '"'.get_string("jserror04",        "mod_teamup").'",';
 echo '"'.get_string("pleasequestion",   "mod_teamup").'",';
 echo '"'.get_string("pleaseatleastonequestion",   "mod_teamup").'",';
 echo '"'.get_string("saving",           "mod_teamup").'",';
-echo '"'.get_string("saved",            "mod_teamup").'"';
+echo '"'.get_string("saved",            "mod_teamup").'",';
+echo '"'.get_string("wrongcharquest",   "mod_teamup").'",';
+echo '"'.get_string("wrongcharansw",    "mod_teamup").'"';
 echo ']}';
 

@@ -238,3 +238,6 @@ $string['exportexcel']                 = 'Download all answers in Excel';
 
 $string['calendarstart']               = 'Open Date';
 $string['calendarend']                 = 'Close Date';
+
+$string['wrongcharquest']              = 'Invalid characters in the question';
+$string['wrongcharansw']               = 'Invalid characters in the answers';

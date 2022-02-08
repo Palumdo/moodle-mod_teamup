@@ -306,6 +306,7 @@ function teamup_get_user_answers($id, $usrid) {
                                                       )
                                   )
                AND t1.answerid = t2.id
+               ORDER BY t2.id
            ";
 
     $params = array('userid' => $usrid, 'builder' => $id);

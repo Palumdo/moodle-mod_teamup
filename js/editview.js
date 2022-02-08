@@ -137,14 +137,26 @@ function addNewQuestion() {
     if ($.trim(question.question) == '') {
         err.push(msgDisplay.onequest);
     }
+
+    if (question['question'].indexOf('"') >= 0) {
+        err.push(msgDisplay.charq);
+    }
+
+    for(let i=0;i<question.answers.length;i++) {
+        if (question.answers[i].indexOf('"') >= 0) {
+            err.push(msgDisplay.chara);
+            break;
+        }
+    }
+
     if (question.answers.length <= 1) {
-      err.push(msgDisplay.two);
+        err.push(msgDisplay.two);
     } else if (question['type'] == 'three' && question.answers.length <= 3) {
-      err.push(msgDisplay.three);
+        err.push(msgDisplay.three);
     } else if (question['type'] == 'four' && question.answers.length <= 4) {
-      err.push(msgDisplay.four);
+        err.push(msgDisplay.four);
     } else if (question['type'] == 'five' && question.answers.length <= 5) {
-      err.push(msgDisplay.five);
+        err.push(msgDisplay.five);
     }  
 
     if (err.length) {
@@ -246,4 +258,6 @@ function buildstrings() {
     msgDisplay.pleaseatleastonequestion = str[12];
     msgDisplay.saving = str[13];
     msgDisplay.saved = str[14];
+    msgDisplay.charq = str[15];
+    msgDisplay.chara = str[16];
 }
