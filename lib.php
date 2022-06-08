@@ -331,13 +331,14 @@ function teamup_get_user_answers($id, $usrid) {
  */
  function teamup_reset_userdata($data) {
     global $DB;
+    $status = array();
 
     if (empty($data)) {
-        return;
+        return $status;
     }
 
     if (!isset($data->courseid)) {
-        return;
+        return $status;
     }
 
     $sql = "SELECT *
@@ -357,4 +358,5 @@ function teamup_get_user_answers($id, $usrid) {
     foreach ($responses as &$res) {
         $DB->delete_records('teamup_response', array('id' => $res->id));
     }
+    return $status;
 }

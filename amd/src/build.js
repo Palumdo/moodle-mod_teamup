@@ -145,7 +145,7 @@ define(['jquery', 'jqueryui', 'core/str'], function($, jqui, str) {
     // *****************************************************************************************************************************
     var setup = function() {
         $(".stepper").each(function() {
-            
+
             var spin = "<input id='nbteam' type='number' min='1' style='width:60px;height:26px;margin:10px 5px 0 0;' value='1'>";
             var reload = "<span id='nbstudentsdsp'> / " + $(".student").length + '(' + Math.ceil($(".student").length
                             / parseInt($("#nbteam").val())) + ')' + "</span>";
