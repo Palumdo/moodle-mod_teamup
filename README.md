@@ -47,5 +47,4 @@ https://github.com/Palumdo/moodle-mod_teamup/wiki/Documentation
 Maintainer: Dominique Palumbo (dominique.palumbo@uclouvain.be)  
 Original developer: Teambuilder was developed at the University of 
 New South Wales (https://www.unsw.edu.au) by Adam Olley
-Fork developer: Team Up was developed at the 
-University of Louvain-La-Neuve (https://uclouvain.be)
+Fork developer: Team Up was developed at the University of Louvain-La-Neuve (https://uclouvain.be)
