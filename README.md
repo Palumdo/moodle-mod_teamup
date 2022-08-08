@@ -20,7 +20,7 @@ with Kathryn Dimiduk of Cornell Engineering's
 James McCormick Family Teaching Excellence Institute. 
 For more information about Team Up operation watch the video or read documentation
 
-The main contributors are Philippe Bocquier, Patrick Gérin, Andreia Lemaître, Isabelle Motte and Séverine Gossiaux
+The main contributors are Bruno Schoumaker, Philippe Bocquier, Patrick Gérin, Andreia Lemaître, Isabelle Motte and Séverine Gossiaux
 
 [Demo video](https://podcast.uclouvain.be/xrSPa06aT4)
 ##Install
@@ -47,4 +47,5 @@ https://github.com/Palumdo/moodle-mod_teamup/wiki/Documentation
 Maintainer: Dominique Palumbo (dominique.palumbo@uclouvain.be)  
 Original developer: Teambuilder was developed at the University of 
 New South Wales (https://www.unsw.edu.au) by Adam Olley
-Fork developer: Team Up was developed at the University of Louvain-La-Neuve (https://uclouvain.be)
+Fork developer: Team Up was developed at the 
+University of Louvain-La-Neuve (https://uclouvain.be)
