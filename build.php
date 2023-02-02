@@ -298,7 +298,7 @@ if (!empty($feedback)) {
 </fieldset>
 
 <div style="text-align:center;margin:15px 50px 0px;border-top:1px solid black;padding-top:15px;">
-  <button type="button" onclick="$('#createGroupsForm').slideDown(300);" class="creategroups btn btn-default">$strcreategroups
+  <button type="button" onclick="$('#createGroupsForm').slideDown(300);" class="creategroups btn btn-primary">$strcreategroups
   </button>
   <div style="display:none" id="createGroupsForm"><p>$strconfirmgroupbuilding</p>
     <table class="mod-teamup-table" style="margin:auto;width:100%;background:transparent;margin-bottom:5px;">
