@@ -32,4 +32,4 @@ $plugin->requires   = 2015051100;
 $plugin->component  = 'mod_teamup';
 $plugin->maturity   = MATURITY_STABLE;
 $plugin->cron       = 0;
-$plugin->release    = '1.0.0.4';
+$plugin->release    = '1.0.0.5';
