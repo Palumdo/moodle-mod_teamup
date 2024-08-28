@@ -202,15 +202,15 @@ if (!empty($feedback)) {
     $buttons = [
         html_writer::tag('span', get_string('numberofteams', 'mod_teamup'). ' :', ['id' => 'placeithere']),
         html_writer::tag('button', html_writer::tag('strong', get_string('preview', 'mod_teamup')), ['type' => 'button',
-                            'id' => 'buildteams', 'class' => 'btn btn-default']),
+                            'id' => 'buildteams', 'class' => 'btn btn-secondary']),
         html_writer::tag('button', get_string('resetteams', 'mod_teamup'), ['type' => 'button', 'id' => 'resetteams',
-                            'class' => 'btn btn-default']),
+                            'class' => 'btn btn-secondary']),
         html_writer::tag('button', get_string('prettify',   'mod_teamup'), ['type' => 'button', 'id' => 'prettify',
-                            'class' => 'btn btn-default', 'title' => get_string('prettifyHelp', 'mod_teamup')]),
+                            'class' => 'btn btn-secondary', 'title' => get_string('prettifyHelp', 'mod_teamup')]),
         html_writer::tag('button', get_string('equalize',   'mod_teamup'), ['type' => 'button', 'id' => 'equalize',
-                            'class' => 'btn btn-default', 'title' => get_string('equalizeHelp', 'mod_teamup')]),
+                            'class' => 'btn btn-secondary', 'title' => get_string('equalizeHelp', 'mod_teamup')]),
     ];
-    echo '<div style="width:100%;text-align:right;margin-top:5px;padding-right:250px;"><button class="btn btn-default"
+    echo '<div style="width:100%;text-align:right;margin-top:5px;padding-right:250px;"><button class="btn btn-secondary"
                 id="addnewcriterion">'.get_string('addnewcriterion', 'mod_teamup').'</button></div>';
 
     echo '<div class="ui-widget" style="text-align:center;margin-top:5px;">';
@@ -243,9 +243,9 @@ if (!empty($feedback)) {
     echo $groups;
     echo '</select>';
     echo html_writer::tag('button', get_string('deleteAllRed', 'mod_teamup'), ['type' => 'button', 'id' => 'deleteallred',
-            'class' => 'btn btn-default', 'style' => 'margin-right:5px;margin-left:5px;']);
+            'class' => 'btn btn-secondary', 'style' => 'margin-right:5px;margin-left:5px;']);
     echo html_writer::tag('button', get_string('keepAllRed',   'mod_teamup'), ['type' => 'button', 'id' => 'keepallred',
-            'class' => 'btn btn-default']);
+            'class' => 'btn btn-secondary']);
     echo html_writer::start_div('', ['id' => 'unassigned']);
     echo html_writer::tag('h2', get_string('unassignedtoteams', 'mod_teamup'));
     echo html_writer::start_div('sortable');
@@ -324,8 +324,8 @@ if (!empty($feedback)) {
         <td style="text-align:left;"><input type="checkbox" checked="checked" name="nogrouping" id="nogrouping" value="1" /></td>
       </tr>
     </table>
-    <button class="btn btn-default" type="button" onclick="$('#createGroupsForm').slideUp(300);">$strcancel</button>&nbsp
-    <button class="btn btn-default" type="button" id="creategroups">$strok</button>
+    <button class="btn btn-secondary" type="button" onclick="$('#createGroupsForm').slideUp(300);">$strcancel</button>&nbsp
+    <button class="btn btn-secondary" type="button" id="creategroups">$strok</button>
   </div>
 </div>
 HTML;

@@ -218,7 +218,7 @@ HTML;
             // New question form.
             $onclick = "saveQuestionnaire('{$CFG->wwwroot}/mod/teamup/ajax.php', {$id})";
             echo '<div style="display:none;text-align:center;" id="savingIndicator"></div>';
-            echo '<div style="text-align:center;"><button class="btn btn-default" type="button" id="saveQuestionnaire" onclick="'
+            echo '<div style="text-align:center;"><button class="btn btn-secondary" type="button" id="saveQuestionnaire" onclick="'
                     .$onclick.'">';
             echo get_string('savequestionnaire', 'mod_teamup').'</button></div>';
 
@@ -235,7 +235,7 @@ HTML;
                 }
                 $strimport = get_string('import', 'mod_teamup');
                 $stror = get_string('or', 'mod_teamup');
-                echo '</select><button class="btn btn-default" type="button" id="importButton">'.$strimport.'</button><br/>'.$stror
+                echo '</select><button class="btn btn-secondary" type="button" id="importButton">'.$strimport.'</button><br/>'.$stror
                         .'</div>';
 
             }
@@ -277,13 +277,13 @@ HTML;
         <tr>
             <th scope="row">$stranswers</th>
             <td id="answerSection"><input type="text" name="answers[]" class="text" maxlength="250" /><br/>
-                <button class="btn btn-default" onclick="addNewAnswer();" type="button">+</button>
-                <button class="btn btn-default" onclick="removeLastAnswer();" type="button">-</button>
+                <button class="btn btn-secondary" onclick="addNewAnswer();" type="button">+</button>
+                <button class="btn btn-secondary" onclick="removeLastAnswer();" type="button">-</button>
             </td>
         </tr>
         <tr>
             <td></td>
-            <td><button class="btn btn-default" id="addNewQuestion" type="button" onclick="addNewQuestion();">$straddnewquestion
+            <td><button class="btn btn-secondary" id="addNewQuestion" type="button" onclick="addNewQuestion();">$straddnewquestion
                 </button></td>
         </tr>
     </table>
